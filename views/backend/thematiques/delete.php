@@ -4,6 +4,7 @@ include '../../../header.php';
 if(isset($_GET['numThem'])){
     $numThem = $_GET['numThem'];
     $libThem = sql_select("THEMATIQUE", "libThem", "numThem = $numThem")[0]['libThem'];
+    $test=sql_select("article",'*',"numThem=".$numThem);
 }
 ?>
 
@@ -22,9 +23,12 @@ if(isset($_GET['numThem'])){
                     <input id="libThem" name="libThem" class="form-control" type="text" value="<?php echo($libThem); ?>" readonly="readonly" disabled />
                 </div>
                 <br />
+                <?php  if(count($test)!=0) {
+                    echo "<div class='fw-bold text-danger'>La thématique '$libThem' est attribué à des articles, elle ne peut pas être supprimée.</div>";
+                }?>
                 <div class="form-group mt-2">
                     <a href="list.php" class="btn btn-primary">List</a>
-                    <button type="submit" class="btn btn-danger">Confirmer delete ?</button>
+                    <button type="submit" class="btn btn-danger"<?php if (count($test)!=0){echo "disabled";} ?>>Confirmer delete ?</button>
                 </div>
             </form>
         </div>

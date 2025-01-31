@@ -4,6 +4,7 @@ include '../../../header.php';
 if(isset($_GET['numStat'])){
     $numStat = $_GET['numStat'];
     $libStat = sql_select("STATUT", "libStat", "numStat = $numStat")[0]['libStat'];
+    $test=sql_select("membre",'*',"numStat=".$numStat);
 }
 ?>
 
@@ -22,9 +23,12 @@ if(isset($_GET['numStat'])){
                     <input id="libStat" name="libStat" class="form-control" type="text" value="<?php echo($libStat); ?>" readonly="readonly" disabled />
                 </div>
                 <br />
+                <?php  if(count($test)!=0) {
+                    echo "<div class='fw-bold text-danger'>Le statut '$libStat' est attribué à des utilisateurs, il ne peut pas être supprimé.</div>";
+                }?>
                 <div class="form-group mt-2">
                     <a href="list.php" class="btn btn-primary">List</a>
-                    <button type="submit" class="btn btn-danger">Confirmer delete ?</button>
+                    <button type="submit" class="btn btn-danger <?php if (count($test)!=0){echo "disabled";} ?>" >Confirmer delete ?</button>
                 </div>
             </form>
         </div>
