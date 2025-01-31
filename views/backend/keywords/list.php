@@ -25,7 +25,7 @@ $motcles = sql_select("motcle", "*");
                             <td><?php echo($motcle['libMotCle']); ?></td>
                             <td>
                                 <a href="edit.php?numMotCle=<?php echo($motcle['numMotCle']); ?>" class="btn btn-primary">Edit</a>
-                                <a href="delete.php?numMotCle=<?php echo($motcle['libMotCle']); ?>" class="btn btn-danger">Delete</a>
+                                <a href="delete.php?numMotCle=<?php echo($motcle['numMotCle']); ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
