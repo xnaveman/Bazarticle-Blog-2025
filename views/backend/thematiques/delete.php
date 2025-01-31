@@ -4,7 +4,7 @@ include '../../../header.php';
 if(isset($_GET['numThem'])){
     $numThem = $_GET['numThem'];
     $libThem = sql_select("THEMATIQUE", "libThem", "numThem = $numThem")[0]['libThem'];
-    $test=sql_select("THEMATIQUE",'*',"numThem=".$numThem);
+    $test=sql_select("article",'*',"numThem=".$numThem);
 }
 ?>
 
