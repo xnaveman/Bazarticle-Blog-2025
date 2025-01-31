@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../../header.php';
 ?>
 
@@ -29,15 +30,25 @@ include '../../../header.php';
                 </div>
                 <div class="form-group">
                     <label for="eMailMemb">Mail du membre</label>
-                    <input id="eMailMemb" name="eMailMemb" class="form-control" type="text" autofocus="autofocus" />
+                    <input id="eMailMemb" name="eMailMemb" class="form-control" type="email" autofocus="autofocus" />
                 </div>
-                <br/>
+                <div class="form-group">
+                    <label for="eMailMembverif">Verifier le Mail</label>
+                    <input id="eMailMembverif" name="eMailMembverif" class="form-control" type="email" autofocus="autofocus" />
+                </div>
                 <div class="form-group mt-2">
-                    <a href="list.php" class="btn btn-primary">List</a>
-                    <button type="submit" class="btn btn-success">Confirmer create ?</button>
+                <?php
+                if (!empty($_SESSION['errors'])) {
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo "<div class='fw-bold text-danger'>$error</div>";
+                    }
+                    unset($_SESSION['errors']);
+                }
+                ?>
                 </div>
-                
+                <button type="submit" class="btn btn-primary">Créer</button>
             </form>
         </div>
     </div>
 </div>
+<?php include '../../../footer.php'; ?>

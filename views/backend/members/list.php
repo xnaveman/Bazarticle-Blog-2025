@@ -24,8 +24,8 @@ $membres = sql_select("MEMBRE", "*");
                             <td><?php echo($memb['numMemb']); ?></td>
                             <td><?php echo($memb['pseudoMemb']); ?></td>
                             <td>
-                                <a href="edit.php?numStat=<?php echo($memb['numMemb']); ?>" class="btn btn-primary">Edit</a>
-                                <a href="delete.php?numStat=<?php echo($memb['numMemb']); ?>" class="btn btn-danger">Delete</a>
+                                <a href="edit.php?numMemb=<?php echo($memb['numMemb']); ?>" class="btn btn-primary">Edit</a>
+                                <a href="delete.php?numMemb=<?php echo($memb['numMemb']); ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
