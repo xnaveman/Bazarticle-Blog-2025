@@ -19,6 +19,7 @@ if (isset($_FILES)){
 $motcles=sql_select("motclearticle","numMotCle","numArt=$numArt");
 $inputs=$_POST;
 extract($inputs);
+$dtMajArt = date("Y-m-d H:i:s");
 $libTitrArt = ctrlSaisies($libTitrArt);
 $libChapoArt = ctrlSaisies($libChapoArt);
 $libAccrochArt = ctrlSaisies($libAccrochArt);
@@ -31,7 +32,7 @@ $libConclArt =ctrlSaisies($libConclArt);
 $nom_image = ctrlSaisies($nom_image);
 $numThem = ctrlSaisies($numThem);
 
-sql_update('article', "libTitrArt = '$libTitrArt', libChapoArt = '$libChapoArt', libAccrochArt = '$libAccrochArt', parag1Art = '$parag1Art', libSsTitr1Art = '$libSsTitr1Art', parag2Art = '$parag2Art', libSsTitr2Art = '$libSsTitr2Art', parag3Art = '$parag3Art', libConclArt = '$libConclArt', urlPhotArt = '$nom_image', numThem = '$numThem'", "numArt = $numArt");
+sql_update('article', "dtMajArt='$dtMajArt',libTitrArt = '$libTitrArt', libChapoArt = '$libChapoArt', libAccrochArt = '$libAccrochArt', parag1Art = '$parag1Art', libSsTitr1Art = '$libSsTitr1Art', parag2Art = '$parag2Art', libSsTitr2Art = '$libSsTitr2Art', parag3Art = '$parag3Art', libConclArt = '$libConclArt', urlPhotArt = '$nom_image', numThem = '$numThem'", "numArt = $numArt");
 
 sql_delete("motclearticle","numArt=$numArt"); //supprimer les anciens mots clés
 
