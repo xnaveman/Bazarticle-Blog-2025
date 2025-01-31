@@ -36,8 +36,8 @@ include '../../header.php';
                         <tr>
                             <td>Membres</td>
                             <td>
-                                <a href="/views/backend/members/list.php" class="btn btn-primary disabled">List</a>
-                                <a href="/views/backend/members/create.php" class="btn btn-success disabled">Create</a>
+                                <a href="/views/backend/members/list.php" class="btn btn-primary">List</a>
+                                <a href="/views/backend/members/create.php" class="btn btn-success">Create</a>
                             </td>
                             <td>Pour tous les membres : Inscription, connexion, sécurité et captcha</td>
                         </tr>
