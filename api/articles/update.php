@@ -41,4 +41,4 @@ foreach ($inputs as $key => $value) { //ajouter les nouveaux mots clés
     }
 }
 
-// header('Location: ../../views/backend/articles/list.php');
+header('Location: ../../views/backend/articles/list.php');
