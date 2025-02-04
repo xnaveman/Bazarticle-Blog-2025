@@ -1,7 +1,8 @@
 <?php
 include '../../../header.php';
-session_start();
-?>
+if(!isset($_SESSION)){
+    session_start();
+}?>
 
 <!-- Formulaire de création de membre -->
 <div class="container">
@@ -43,7 +44,6 @@ session_start();
                 </div>
                 <div class="form-group mb-3">
                     <?php
-                    var_dump($_SESSION);
                     if (!empty($_SESSION['errors'])) {
                         foreach ($_SESSION['errors'] as $error) {
                             echo "<div class='fw-bold text-danger'>$error</div>";
