@@ -26,7 +26,11 @@ include '../../../header.php';
                 </div>
                 <div class="form-group">
                     <label for="passMemb">Mot de passe du membre</label>
-                    <input id="passMemb" name="passMemb" class="form-control" type="text" autofocus="autofocus" />
+                    <input id="passMemb" name="passMemb" class="form-control" type="password" autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label for="passMembVerif">Vérifier le mot de passe</label>
+                    <input id="passMembVerif" name="passMembVerif" class="form-control" type="password" autofocus="autofocus" />
                 </div>
                 <div class="form-group">
                     <label for="eMailMemb">Mail du membre</label>
