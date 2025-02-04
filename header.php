@@ -49,7 +49,7 @@ require_once 'config.php';
         </form>
         <?php
         if (isset($_SESSION['pseudoMemb'])) {
-          echo '<button type="button" class="btn btn-outline-secondary">' . $_SESSION['pseudoMemb'] . '</button>';
+          echo '<a type="button" class="btn btn-outline-secondary" href="/views/backend/security/account.php" role="button">' . $_SESSION['pseudoMemb'] . '</button>';
           echo '<a class="btn btn-primary m-1" href="/api/security/disconnect.php" role="button">Déconnexion</a>';
         } else {
           echo '<a class="btn btn-primary m-1" href="/views/backend/security/login.php" role="button">Login</a>';

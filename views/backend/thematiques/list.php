@@ -1,7 +1,9 @@
 <?php
-include '../../../header.php'; // contains the header and call to config.php
-
-//Load all statuts
+include '../../../header.php';
+if (check_access(2) == false) {
+    header('Location: /index.php');
+    exit();
+}
 $thematiques = sql_select("THEMATIQUE", "*");
 ?>
 

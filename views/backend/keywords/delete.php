@@ -2,6 +2,10 @@
 include '../../../header.php';
 require_once '../../../functions/ctrlSaisies.php';
 require_once '../../../functions/query/select.php';
+if (check_access(2) == false) {
+    header('Location: /index.php');
+    exit();
+}
 
 if (isset($_GET['numMotCle'])) {
     $numMotCle = intval(ctrlSaisies($_GET['numMotCle']));

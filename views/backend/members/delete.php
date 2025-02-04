@@ -1,5 +1,9 @@
 <?php
 include '../../../header.php';
+if (check_access(2) == false) {
+    header('Location: /index.php');
+    exit();
+}
 
 if (isset($_GET['numMemb'])) {
     $numMemb = $_GET['numMemb'];
