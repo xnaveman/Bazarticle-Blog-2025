@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <?php
         if (isset($_GET['cookie']) && $_GET['cookie']==1){
           setcookie("cookie", "true", time() + 365*24*60*60, "/");
+        } else if(isset($_GET['cookie'])){
+          setcookie("cookie", "false", time() + 365*24*60*60, "/");
         } else {
           if (!isset($_COOKIE['cookie'])){
           echo '
@@ -81,8 +83,9 @@ document.addEventListener("DOMContentLoaded", function() {
         Ce site utilise des cookies pour optimiser votre expérience et améliorer nos services. En acceptant, vous profitez d’un site plus fluide, personnalisé et performant.
       </div>
       <div class="modal-footer">';
-            echo '<a class="btn btn-primary m-1" href="index.php?cookie=1" role="button">Accepter les cookies</a>';
-            echo ' </div>
+          echo '<a class="btn btn-primary m-1" href="index.php?cookie=0" role="button">Refuser les cookies</a>';
+          echo '<a class="btn btn-primary m-1" href="index.php?cookie=1" role="button">Accepter les cookies</a>';
+          echo ' </div>
     </div>
   </div>
 </div>';
