@@ -7,6 +7,9 @@ include '../../../header.php';
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <h1>Login</h1>
+                <?php if (isset($_GET['error']) && $_GET['error'] == 1) {
+                    echo '<div class="fw-bold text-danger">' . 'Identifiants incorrects' . '</div>';
+                } ?>
             </div>
         </div>
         <div class="row justify-content-center">
