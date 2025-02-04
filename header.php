@@ -3,9 +3,7 @@
 
 <head>
   <?php
-    if (session_status() == PHP_SESSION_NONE) {
-      session_start();
-    }
+    session_start();
   ?>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
