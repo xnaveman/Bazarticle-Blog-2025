@@ -8,9 +8,9 @@ if (isset($_GET['numMemb'])) {
     $prenomMemb = $memberData['prenomMemb'];
     $nomMemb = $memberData['nomMemb'];
     $passMemb = $memberData['passMemb'];
-    $passMembVerif = ctrlSaisies($_POST['passMembVerif']);
+    $passMembVerif = $memberData['passMemb'];
     $eMailMemb = $memberData['eMailMemb'];
-    $eMailMembVerif = ctrlSaisies($_POST['eMailMembVerif']);
+    $eMailMembVerif = $memberData['eMailMemb'];
 }
 ?>
 
