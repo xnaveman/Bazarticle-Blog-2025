@@ -35,9 +35,11 @@ require_once 'config.php';
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/views/backend/dashboard.php">Admin</a>
-          </li>
+          <?php if (isset($_SESSION['numStat']) && ($_SESSION['numStat'] == 1 || $_SESSION['numStat'] == 2)){
+          echo "<li class='nav-item'>
+            <a class='nav-link' href='/views/backend/dashboard.php'>Admin</a>
+          </li>";}
+          ?>
         </ul>
       </div>
       <!--right align-->
