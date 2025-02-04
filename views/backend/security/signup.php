@@ -1,7 +1,8 @@
 <?php
 include '../../../header.php';
-session_start();
-?>
+if(!isset($_SESSION)){
+    session_start();
+}?>
 
 <div class="container">
     <div class="row justify-content-center">

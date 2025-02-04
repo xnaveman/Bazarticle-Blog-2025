@@ -4,8 +4,9 @@ require_once '../../functions/ctrlSaisies.php';
 require_once '../../functions/query/select.php';
 require_once '../../functions/query/insert.php';
 
-session_start();
-
+if(!isset($_SESSION)){
+    session_start();
+}
 $pseudoMemb = ctrlSaisies($_POST['pseudoMemb']);
 $nomMemb = ctrlSaisies($_POST['nomMemb']);
 $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
