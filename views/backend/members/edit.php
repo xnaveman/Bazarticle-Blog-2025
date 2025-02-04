@@ -1,6 +1,8 @@
 <?php
 include '../../../header.php';
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 if (isset($_GET['numMemb'])) {
     $numMemb = $_GET['numMemb'];
     $memberData = sql_select("MEMBRE", "*", "numMemb = $numMemb")[0];
@@ -23,37 +25,40 @@ if (isset($_GET['numMemb'])) {
         <div class="col-md-12">
             <!-- Form to create a new statut -->
             <form action="<?php echo ROOT_URL . '/api/members/update.php' ?>" method="post">
-                <div class="form-group">
-                    <label for="numMemb">Pseudo du Membre</label>
-                    <input id="pseudoMemb" name="pseudoMemb" class="form-control" type="text" value="<?php echo ($pseudoMemb); ?>" readonly="readonly" disabled />
+                <!-- Add hidden input for numMemb -->
+                <input type="hidden" name="numMemb" value="<?php echo $numMemb; ?>">
+
+                <div class="form-group mb-3">
+                    <label for="pseudoMemb">Pseudo du Membre</label>
+                    <input id="pseudoMemb" name="pseudoMemb" class="form-control" type="text" value="<?php echo ($pseudoMemb); ?>" readonly disabled/>
                 </div>
-                <div class="form-group">
-                <label for="nomMemb">Nom du membre</label>
-                    <input id="nomMemb" name="nomMemb" class="form-control" type="text" value="<?php echo ($nomMemb); ?>"/>
+                <div class="form-group mb-3">
+                    <label for="nomMemb">Nom du membre</label>
+                    <input id="nomMemb" name="nomMemb" class="form-control" type="text" value="<?php echo ($nomMemb); ?>" required />
                 </div>
-                <div class="form-group">
-                <label for="prenomMemb">Prénom du membre</label>
-                    <input id="prenomMemb" name="prenomMemb" class="form-control" type="text" value="<?php echo ($prenomMemb); ?>"/>
+                <div class="form-group mb-3">
+                    <label for="prenomMemb">Prénom du membre</label>
+                    <input id="prenomMemb" name="prenomMemb" class="form-control" type="text" value="<?php echo ($prenomMemb); ?>" required />
                 </div>
-                <div class="form-group">
-                <label for="passMemb">Mot de Passe du membre</label>
-                    <input id="passMemb" name="passMemb" class="form-control" type="password" value="<?php echo ($passMemb); ?>"/>
+                <div class="form-group mb-3">
+                    <label for="passMemb">Mot de Passe du membre</label>
+                    <input id="passMemb" name="passMemb" class="form-control" type="password" value="<?php echo ($passMemb); ?>" required />
                 </div>
-                <div class="form-group">
-                <label for="passMembVerif">Vérification Mot de Passe du membre</label>
-                    <input id="passMembVerif" name="passMembVerif" class="form-control" type="password" value="<?php echo ($passMemb); ?>"/>
+                <div class="form-group mb-3">
+                    <label for="passMembVerif">Vérification Mot de Passe du membre</label>
+                    <input id="passMembVerif" name="passMembVerif" class="form-control" type="password" value="<?php echo ($passMemb); ?>" required />
                 </div>
-                <div class="form-group">
-                <label for="eMailMemb">Email du membre</label>
-                    <input id="eMailMemb" name="eMailMemb" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>"/>
+                <div class="form-group mb-3">
+                    <label for="eMailMemb">Email du membre</label>
+                    <input id="eMailMemb" name="eMailMemb" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>" required />
                 </div>
-                <div class="form-group">
-                <label for="eMailMembVerif">Vérification Email du membre</label>
-                    <input id="eMailMembVerif" name="eMailMembVerif" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>"/>
+                <div class="form-group mb-3">
+                    <label for="eMailMembVerif">Vérification Email du membre</label>
+                    <input id="eMailMembVerif" name="eMailMembVerif" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>" required />
                 </div>
                 <br />
                 <?php
-                
+
                 if (!empty($_SESSION['errors'])) {
                     foreach ($_SESSION['errors'] as $error) {
                         echo "<div class='fw-bold text-danger'>$error</div>";
@@ -62,9 +67,9 @@ if (isset($_GET['numMemb'])) {
                 }
                 ?>
                 <button type="submit" class="btn btn-danger">Confirmer update ?</button>
-                    </div>
-                </div>
             </form>
         </div>
     </div>
+</div>
+</div>
 </div>

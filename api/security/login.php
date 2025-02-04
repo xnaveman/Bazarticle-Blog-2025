@@ -21,6 +21,15 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
             header('Location: /index.php');
             exit();
+        } else {
+            header('Location: /views/backend/security/login.php?error=1');
+            exit();
         }
+    } else {
+        header('Location: /views/backend/security/login.php?error=1');
+        exit();
     }
+} else {
+    header('Location: /views/backend/security/login.php?error=1');
+    exit();
 }

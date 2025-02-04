@@ -5,19 +5,18 @@ if(!isset($_SESSION)){
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once '../../functions/ctrlSaisies.php';
 require_once '../../functions/query/select.php';
-require_once '../../functions/query/insert.php';
+require_once '../../functions/query/update.php';
 
-$pseudoMemb = ctrlSaisies($_POST['pseudoMemb']);
+$numMemb = intval($_POST['numMemb']);
 $nomMemb = ctrlSaisies($_POST['nomMemb']);
 $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
 $passMemb = ctrlSaisies($_POST['passMemb']);
 $passMembVerif = ctrlSaisies($_POST['passMembVerif']);
 $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
 $eMailMembVerif = ctrlSaisies($_POST['eMailMembVerif']);
-$dtMajMemb = date("Y-m-d-H-i-s");
+
 $errors = [];
 
-// Password validation regex
 $passRegex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,15}$/';
 
 if (empty($nomMemb) || empty($prenomMemb) || empty($passMemb) || empty($eMailMemb) || empty($eMailMembVerif) || empty($passMembVerif)){
@@ -36,7 +35,7 @@ if (!empty($errors)) {
     exit();
 } else {
     // $hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
-    sql_update('MEMBRE', 'nomMemb, prenomMemb, passMemb, eMailMemb, dtMajMemb', "'$nomMemb', '$prenomMemb', '$passMemb', '$eMailMemb', '$dtMajMemb'");
+    sql_update('MEMBRE', "nomMemb = '$nomMemb', prenomMemb = '$prenomMemb', passMemb = '$passMemb', eMailMemb = '$eMailMemb'", "numMemb = $numMemb");
     header('Location: ../../views/backend/members/list.php');
     exit();
 }
