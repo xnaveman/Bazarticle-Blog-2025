@@ -3,11 +3,17 @@
 
 <head>
   <?php
-  session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
   ?>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog'Art</title>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <!-- Load CSS -->
   <link rel="stylesheet" href="src/css/style.css" />
   <!-- Bootstrap CSS only -->
@@ -49,6 +55,40 @@ require_once 'config.php';
           echo '<a class="btn btn-primary m-1" href="/views/backend/security/login.php" role="button">Login</a>';
           echo '<a class="btn btn-dark m-1" href="/views/backend/security/signup.php" role="button">Inscription</a>';
         }
+        ?>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+    myModal.show();
+});
+</script>
+
+       
+      
+        <?php
+        if (isset($_GET['cookie']) && $_GET['cookie']==1){
+          setcookie("cookie", "true", time() + 365*24*60*60, "/");
+        } else {
+          if (!isset($_COOKIE['cookie'])){
+          echo '
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Accepter nos cookies</h1>
+      </div>
+      <div class="modal-body">
+        Ce site utilise des cookies pour optimiser votre expérience et améliorer nos services. En acceptant, vous profitez d’un site plus fluide, personnalisé et performant.
+      </div>
+      <div class="modal-footer">';
+            echo '<a class="btn btn-primary m-1" href="index.php?cookie=1" role="button">Accepter les cookies</a>';
+            echo ' </div>
+    </div>
+  </div>
+</div>';
+          }
+        }
+        
         ?>
       </div>
     </div>
