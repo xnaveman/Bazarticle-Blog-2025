@@ -1,7 +1,8 @@
 <?php
-include '../../../header.php'; // contains the header and call to config.php
-
-//Load all statuts
+include '../../../header.php';
+if(!isset($_SESSION)){
+    session_start();
+}
 $membres = sql_select("MEMBRE", "*");
 ?>
 
@@ -10,6 +11,15 @@ $membres = sql_select("MEMBRE", "*");
     <div class="row">
         <div class="col-md-12">
             <h1>Membres</h1>
+            <?php
+                if (!empty($_SESSION['errors'])) {
+                    echo "<div class='fw-bold text-danger'>Erreurs de modification :</div>";
+                        foreach ($_SESSION['errors'] as $error) {
+                            echo "<div class='fw-bold text-danger'>$error</div>";
+                        }
+                        unset($_SESSION['errors']);
+                    }
+                ?>
             <table class="table table-striped">
                 <thead>
                     <tr>
