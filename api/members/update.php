@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once '../../functions/ctrlSaisies.php';
 require_once '../../functions/query/select.php';
@@ -29,7 +32,7 @@ if (empty($nomMemb) || empty($prenomMemb) || empty($passMemb) || empty($eMailMem
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
-    header('Location: ../../views/backend/members/edit.php');
+    header('Location: ../../views/backend/members/list.php');
     exit();
 } else {
     // $hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
