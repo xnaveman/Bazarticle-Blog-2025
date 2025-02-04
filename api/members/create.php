@@ -17,22 +17,21 @@ $errors = [];
 $nbrchara = strlen($pseudoMemb);
 $existingPseudo = sql_select("MEMBRE", "pseudoMemb", "pseudoMemb = '$pseudoMemb'");
 
-// Password validation regex
 $passRegex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,15}$/';
 
-if ($nbrchara < 6 || $nbrchara > 70) {
-    $errors[] = "Le pseudo doit contenir entre 6 et 70 caractères !";
-} elseif (!empty($existingPseudo)) {
-    $errors[] = "Le pseudo existe déjà !";
-} elseif (empty($pseudoMemb) || empty($nomMemb) || empty($prenomMemb) || empty($passMemb) || empty($eMailMemb)) {
-    $errors[] = "Toutes les cases du formulaire doivent être remplies !";
-} elseif($eMailMembverif != $eMailMemb) {
-    $errors[] = "Les mails ne sont pas identiques";
-} elseif($passMembVerif != $passMemb) {
-    $errors[] = "Les mots de passe ne sont pas identiques";
-} elseif (!preg_match($passRegex, $passMemb)) {
-    $errors[] = "Le mot de passe doit contenir entre 8 et 15 caractères, avec au moins une majuscule, une minuscule, un chiffre et un caractère spécial.";
-}
+    if ($nbrchara < 6 || $nbrchara > 70) {
+        $errors[] = "Le pseudo doit contenir entre 6 et 70 caractères !";
+    } elseif (!empty($existingPseudo)) {
+        $errors[] = "Le pseudo existe déjà !";
+    } elseif (empty($pseudoMemb) || empty($nomMemb) || empty($prenomMemb) || empty($passMemb) || empty($eMailMemb)) {
+        $errors[] = "Toutes les cases du formulaire doivent être remplies !";
+    } elseif ($eMailMembverif != $eMailMemb) {
+        $errors[] = "Les mails ne sont pas identiques";
+    } elseif ($passMembVerif != $passMemb) {
+        $errors[] = "Les mots de passe ne sont pas identiques";
+    } elseif (!preg_match($passRegex, $passMemb)) {
+        $errors[] = "Le mot de passe doit contenir entre 8 et 15 caractères, avec au moins une majuscule, une minuscule, un chiffre et un caractère spécial.";
+    }
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
