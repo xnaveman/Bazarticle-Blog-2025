@@ -1,6 +1,6 @@
 <?php
 include '../../../header.php';
-
+session_start();
 if (isset($_GET['numMemb'])) {
     $numMemb = $_GET['numMemb'];
     $memberData = sql_select("MEMBRE", "*", "numMemb = $numMemb")[0];
