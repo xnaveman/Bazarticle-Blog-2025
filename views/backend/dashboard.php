@@ -60,8 +60,8 @@ include '../../header.php';
                         <tr>
                             <td>Commentaires</td>
                             <td>
-                                <a href="/views/backend/comments/list.php" class="btn btn-primary disabled">List</a>
-                                <a href="/views/backend/comments/create.php" class="btn btn-success disabled">Create</a>
+                                <a href="/views/backend/comments/list.php" class="btn btn-primary ">List</a>
+                                <a href="/views/backend/comments/create.php" class="btn btn-success ">Create</a>
                             </td>
                             <td>Gestion côté front et côté back, modération. Utilisation de mise en forme (emojies...)</td>
                         </tr>
