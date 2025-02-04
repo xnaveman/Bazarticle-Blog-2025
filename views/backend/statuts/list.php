@@ -1,7 +1,9 @@
 <?php
-include '../../../header.php'; // contains the header and call to config.php
-
-//Load all statuts
+include '../../../header.php';
+if (check_access(1) == false) {
+    echo "Vous n'avez pas les droits pour accéder à cette page."; 
+    exit();
+}
 $statuts = sql_select("STATUT", "*");
 ?>
 

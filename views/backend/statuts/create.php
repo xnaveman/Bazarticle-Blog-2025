@@ -1,5 +1,9 @@
 <?php
 include '../../../header.php';
+if (check_access(1) == false) {
+    echo "Vous n'avez pas les droits pour accéder à cette page."; 
+    exit();
+}
 ?>
 
 <!-- Bootstrap form to create a new statut -->

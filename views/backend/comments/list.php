@@ -1,5 +1,5 @@
 <?php
-include '../../../header.php'; // contains the header and call to config.php
+include '../../../header.php';
 
 //Load all comments
 $comments = sql_select("comment", "*");
@@ -43,7 +43,6 @@ $commentsarchive = sql_select("comment","*","dtModCom IS NOT null AND dellogiq=1
                             </td>
                         </tr>
                     <?php } ?>
-                   
                 </tbody>
             </table>
             <h2>Commentaires controlés</h2>
