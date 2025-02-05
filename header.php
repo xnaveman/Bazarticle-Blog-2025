@@ -67,9 +67,11 @@ require_once 'config.php';
 
         <?php
         if (isset($_GET['cookie']) && $_GET['cookie'] == 1) {
-          setcookie("cookie", "true", time() + 365 * 24 * 60 * 60, "/");
+          setcookie("cookie", "true", time() + 365 * 24 * 60 * 60, "/", "", false, true);
+
         } else if (isset($_GET['cookie'])) {
-          setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/");
+          setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/", "", false, true);
+
         } else {
           if (!isset($_COOKIE['cookie'])) {
             echo '
