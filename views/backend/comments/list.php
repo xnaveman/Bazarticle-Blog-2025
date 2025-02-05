@@ -38,7 +38,6 @@ $commentsarchive = sql_select("comment","*","dtModCom IS NOT null AND dellogiq=1
                             <td><?php echo($comment['dtCreaCom']); ?></td>
                             <td><?php echo($comment['libCom']); ?></td>
                             <td>
-                                <a href="edit.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-primary">Edit</a>
                                 <a href="controle.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-warning">Contrôle</a>
                             </td>
                         </tr>

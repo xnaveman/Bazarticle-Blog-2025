@@ -20,6 +20,7 @@ if(isset($_GET['numCom'])){
             <!-- Form to create a new comment -->
             <form action="<?php echo ROOT_URL . '/api/comments/controle.php' ?>" method="post">
                 <div class="form-group">
+                <input id="numCom" name="numCom" class="form-control" style="display: none;" value="<?php echo $numCom ?>"readonly="readonly" type="text" autofocus="autofocus" />
                 <label class="h3"for="libTitrArt">Titre de l'article</label>
                 <input id="libTitrArt" name="libTitrArt" class="form-control" type="text" value="<?php echo($tableart[0]['libTitrArt']); ?>" readonly="readonly" />
                     <label class="h3"for="Info">Informations commentaire</label> <br>
@@ -30,9 +31,9 @@ if(isset($_GET['numCom'])){
                     <label class="h3"for="libCom">Commentaire à valider</label>
                     <input id="libCom" name="libCom" class="form-control" type="text" readonly="readonly"value="<?php echo($tablecom[0]['libCom']); ?>" />
                     <label for="attModOK"><strong>En tant que modérateur, je valide le commentaire du membre :</strong></label> <br> <br>
-                        <input type="radio" id="validoui"checked name="attModOK" value="0" />
+                        <input type="radio" id="validoui"checked name="attModOK" value="1" />
                         <label for="validoui">Valider le commentaire</label> <br>
-                        <input type="radio" id="validnon" name="attModOK" value="1" />
+                        <input type="radio" id="validnon" name="attModOK" value="0" />
                         <label for="validnon">Refuser le commentaire</label><br> <br>
                     <label class="h3"for="notifComKOAff">Raison de refus:</label> <br>
                     <label for="notifComKOAff">(Seulement si commentaire refuser)</label><br>

@@ -35,16 +35,16 @@ if(isset($_GET['numCom'])){
                     <label for="libCom">Commentaire à valider</label>
                     <input id="libCom" name="libCom" class="form-control" type="text" value="<?php echo($tablecom[0]['libCom']); ?>" />
                     <label for="attModOK"><strong>En tant que modérateur, je valide le commentaire du membre :</strong></label> <br>
-                        <input type="radio" id="validoui"name="attModOK" value="0" />
+                        <input type="radio" id="validoui"name="attModOK" value="0" <?php if ($tablecom[0]['attModOK']==0){echo "checked";}?> />
                         <label for="validoui">Oui</label>
-                        <input type="radio" id="validnon" name="attModOK" value="1" />
+                        <input type="radio" id="validnon" name="attModOK" value="1" <?php if ($tablecom[0]['attModOK']==1){echo "checked";}?> />
                         <label for="validnon">Non</label><br>
                     <label for="notifComKOAff">Si non, en voici les raisons :</label> <br>
-                    <textarea id="notifComKOAff" name="notifComKOAff" rows="4" cols="50"></textarea> <br>
+                    <textarea id="notifComKOAff" name="notifComKOAff" rows="4" cols="50"><?php echo ($tablecom[0]['notifComKOAff']);?></textarea> <br>
                     <label for="dellogiq"><strong>En tant que modérateur, je souhaite que le post ne soit pas/plus affiché (suppression logique) :</strong></label><br>
-                    <input type="radio" id="oui"name="dellogiq" value="1" />
+                    <input type="radio" id="oui"name="dellogiq" value="1" <?php if ($tablecom[0]['delLogiq']==1){echo "checked";}?>  />
                         <label for="dellogiqoui">Oui</label>
-                        <input type="radio" id="dellogiqnon" name="dellogiq" value="0" />
+                        <input type="radio" id="dellogiqnon" name="dellogiq" value="0"<?php if ($tablecom[0]['delLogiq']==0){echo "checked";}?>  />
                         <label for="dellogiqnon">Non</label><br> <br>
                 </div>
                 <br />

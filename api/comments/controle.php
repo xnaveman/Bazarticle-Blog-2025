@@ -5,11 +5,13 @@ require_once '../../functions/ctrlSaisies.php';
 extract($_POST);
 $dtModCom=date("Y-m-d-H-i-s");
 $numCom = ctrlSaisies($_POST['numCom']);
+var_dump($numCom);
 $notifComKOAff=ctrlSaisies($notifComKOAff);
-if ($attModOK==0){
-    sql_update('comment',"'attModOK=$attModOK','dtModCom=$dtModCom'", "numCom= $numCom");
+if ($attModOK==1){
+    sql_update('comment', "attModOK=$attModOK, dtModCom='$dtModCom'", "numCom=$numCom");
+
 } else {
-    sql_update('comment',"'notifComKOAff=$notifComKOAff','attModOK=$attModOK','dtModCom=$dtModCom'", "numCom= $numCom");
+    sql_update('comment',"notifComKOAff='$notifComKOAff',attModOK=$attModOK,dtModCom='$dtModCom'", "numCom= $numCom");
 }
 
 
