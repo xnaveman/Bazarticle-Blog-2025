@@ -26,6 +26,14 @@ if(isset($_GET['numMotCle'])){
                     <input id="libMotCle" name="libMotCle" class="form-control" type="text" value="<?php echo($libMotCle); ?>" />
                 </div>
                 <br />
+                <?php
+                if (!empty($_SESSION['errors'])) {
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo "<div class='fw-bold text-danger'>$error</div>";
+                    }
+                    unset($_SESSION['errors']);
+                }
+                ?>
                 <div class="form-group mt-2">
                     <a href="list.php" class="btn btn-primary">List</a>
                     <button type="submit" class="btn btn-danger">Confirmer update ?</button>
