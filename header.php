@@ -72,7 +72,7 @@ require_once 'config.php';
         } else if (isset($_GET['cookie'])) {
           setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/", "", false, true);
 
-        }
+        } else {
           if (!isset($_COOKIE['cookie'])) {
             echo '
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
