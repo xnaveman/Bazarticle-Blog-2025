@@ -21,39 +21,6 @@
 <?php
 //load config
 require_once 'config.php';
-
-// Définir l'URL actuelle
-$currentUrl = $_SERVER['REQUEST_URI'];
-
-if (isset($_GET['cookie']) && $_GET['cookie'] == 1) {
-    setcookie("cookie", "true", time() + 365 * 24 * 60 * 60, "/");
-    header("Location: $currentUrl");
-    exit();
-} else if (isset($_GET['cookie'])) {
-    setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/");
-    header("Location: $currentUrl");
-    exit();
-} else {
-    if (!isset($_COOKIE['cookie'])) {
-        echo '
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Accepter nos cookies</h1>
-                    </div>
-                    <div class="modal-body">
-                        Ce site utilise des cookies pour optimiser votre expérience et améliorer nos services. En acceptant, vous profitez d’un site plus fluide, personnalisé et performant.
-                    </div>
-                    <div class="modal-footer">
-                        <a class="btn btn-primary m-1" href="' . $currentUrl . '?cookie=0" role="button">Refuser les cookies</a>
-                        <a class="btn btn-primary m-1" href="' . $currentUrl . '?cookie=1" role="button">Accepter les cookies</a>
-                    </div>
-                </div>
-            </div>
-        </div>';
-    }
-}
 ?>
 
 <body>
@@ -95,6 +62,37 @@ if (isset($_GET['cookie']) && $_GET['cookie'] == 1) {
             myModal.show();
           });
         </script>
+
+
+
+        <?php
+        if (isset($_GET['cookie']) && $_GET['cookie'] == 1) {
+          setcookie("cookie", "true", time() + 365 * 24 * 60 * 60, "/");
+        } else if (isset($_GET['cookie'])) {
+          setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/");
+        } else {
+          if (!isset($_COOKIE['cookie'])) {
+            echo '
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Accepter nos cookies</h1>
+      </div>
+      <div class="modal-body">
+        Ce site utilise des cookies pour optimiser votre expérience et améliorer nos services. En acceptant, vous profitez d’un site plus fluide, personnalisé et performant.
+      </div>
+      <div class="modal-footer">';
+            echo '<a class="btn btn-primary m-1" href="/index.php?cookie=0" role="button">Accepter les cookies</a>';
+            echo '<a class="btn btn-primary m-1" href="/index.php?cookie=1" role="button">Accepter les cookies</a>';
+            echo ' </div>
+    </div>
+  </div>
+</div>';
+          }
+        }
+
+        ?>
       </div>
     </div>
   </nav>
