@@ -5,7 +5,7 @@ define('ROOT_URL', 'http://' . $_SERVER['HTTP_HOST']);
 
 //Load env
 require_once ROOT . '/includes/libs/DotEnv.php';
-(new DotEnv(ROOT.'/.env'))->load();
+//(new DotEnv(ROOT.'/.env'))->load();
 
 //defines
 require_once ROOT . '/config/defines.php';
