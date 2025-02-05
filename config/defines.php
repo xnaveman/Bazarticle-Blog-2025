@@ -1,5 +1,5 @@
 <?php
-if (strpos($_SERVER['HTTP_HOST'], 'scalingo') === false) {
+if (strpos($_SERVER['HTTP_HOST'], 'scalingo') !== false) {
     define('SQL_HOST', getenv('SCALINGO_DB_HOST'));
     define('SQL_USER', getenv('SCALINGO_DB_USER'));
     define('SQL_PWD', getenv('SCALINGO_DB_PASSWORD'));
