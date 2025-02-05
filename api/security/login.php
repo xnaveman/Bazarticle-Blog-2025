@@ -18,6 +18,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         if ($password == $user['passMemb']) {
             $_SESSION['pseudoMemb'] = $user['pseudoMemb'];
             $_SESSION['numMemb'] = $user['numMemb'];
+            $_SESSION['numStat'] = $user['numStat'];
 
             header('Location: /index.php');
             exit();

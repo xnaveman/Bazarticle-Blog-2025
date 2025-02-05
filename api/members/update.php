@@ -14,6 +14,7 @@ $passMemb = ctrlSaisies($_POST['passMemb']);
 $passMembVerif = ctrlSaisies($_POST['passMembVerif']);
 $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
 $eMailMembVerif = ctrlSaisies($_POST['eMailMembVerif']);
+$numStat = intval($_POST['numStat']);
 
 $errors = [];
 
@@ -31,11 +32,11 @@ if (empty($nomMemb) || empty($prenomMemb) || empty($passMemb) || empty($eMailMem
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
-    header('Location: ../../views/backend/members/list.php');
+    header('Location: ../../views/backend/members/edit.php?numMemb=' . $numMemb);
     exit();
 } else {
-    // $hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
-    sql_update('MEMBRE', "nomMemb = '$nomMemb', prenomMemb = '$prenomMemb', passMemb = '$passMemb', eMailMemb = '$eMailMemb'", "numMemb = $numMemb");
+    $hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
+    sql_update('MEMBRE', "nomMemb = '$nomMemb', prenomMemb = '$prenomMemb', passMemb = '$hashedPassMemb', eMailMemb = '$eMailMemb', numStat = $numStat", "numMemb = $numMemb");
     header('Location: ../../views/backend/members/list.php');
     exit();
 }

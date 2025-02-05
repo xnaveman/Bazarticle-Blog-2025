@@ -10810,3 +10810,22 @@ header.masthead .post-heading .meta a {
   margin: 15px;
   height: auto;
 }
+
+.button{
+  border-radius: 2%;
+  margin-left: 10px;
+  margin-top: 5px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 11px;
+}
+
+.button-comment{
+  border-radius: 2%;
+  margin-top: 12px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 11px; 
+}
+
+.comment{
+  margin-top: 10%;
+}

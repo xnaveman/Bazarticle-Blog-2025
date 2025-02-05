@@ -35,9 +35,11 @@ require_once 'config.php';
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/views/backend/dashboard.php">Admin</a>
-          </li>
+          <?php if (isset($_SESSION['numStat']) && ($_SESSION['numStat'] == 1 || $_SESSION['numStat'] == 2)){
+          echo "<li class='nav-item'>
+            <a class='nav-link' href='/views/backend/dashboard.php'>Admin</a>
+          </li>";}
+          ?>
         </ul>
       </div>
       <!--right align-->
@@ -47,7 +49,7 @@ require_once 'config.php';
         </form>
         <?php
         if (isset($_SESSION['pseudoMemb'])) {
-          echo '<button type="button" class="btn btn-outline-secondary">' . $_SESSION['pseudoMemb'] . '</button>';
+          echo '<a type="button" class="btn btn-outline-secondary" href="/views/backend/security/account.php" role="button">' . $_SESSION['pseudoMemb'] . '</button>';
           echo '<a class="btn btn-primary m-1" href="/api/security/disconnect.php" role="button">Déconnexion</a>';
         } else {
           echo '<a class="btn btn-primary m-1" href="/views/backend/security/login.php" role="button">Login</a>';

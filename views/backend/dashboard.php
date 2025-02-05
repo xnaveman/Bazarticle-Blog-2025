@@ -1,12 +1,16 @@
 <?php
 include '../../header.php';
+if (check_access(2) == false) {
+    header('Location: /index.php');
+    exit();
+}
 
 ?>
 
 <!-- Bootstrap admin dashboard template -->
 <div>
     <hr class="my-3">
-    <div style="color: black; font-size: 30px; font-family: Montserrat; font-weight: 400; padding-left: 3rem ;word-wrap: break-word">Liens permettant d'administrer le Blog d'Articles</div>    
+    <div style="color: black; font-size: 30px; font-weight: 400; padding-left: 3rem ;word-wrap: break-word">Liens permettant d'administrer le Blog d'Articles</div>    
     <hr class="my-3">
     <div class="container">
         <div class="row">
