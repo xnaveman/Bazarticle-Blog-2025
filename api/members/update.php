@@ -35,8 +35,8 @@ if (!empty($errors)) {
     header('Location: ../../views/backend/members/edit.php?numMemb=' . $numMemb);
     exit();
 } else {
-    $hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
-    sql_update('MEMBRE', "nomMemb = '$nomMemb', prenomMemb = '$prenomMemb', passMemb = '$hashedPassMemb', eMailMemb = '$eMailMemb', numStat = $numStat", "numMemb = $numMemb");
+    //$hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
+    sql_update('MEMBRE', "nomMemb = '$nomMemb', prenomMemb = '$prenomMemb', passMemb = '$passMemb', eMailMemb = '$eMailMemb', numStat = $numStat", "numMemb = $numMemb");
     header('Location: ../../views/backend/members/list.php');
     exit();
 }

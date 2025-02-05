@@ -31,6 +31,7 @@ if (!isset($_SESSION)) {
             <form action="<?php echo ROOT_URL . '/api/members/update.php' ?>" method="post">
                 <!-- Add hidden input for numMemb -->
                 <input type="hidden" name="numMemb" value="<?php echo $numMemb; ?>">
+                <input type="hidden" name="numStat" value="<?php echo $numStat; ?>">
 
                 <div class="form-group mb-3">
                     <label for="pseudoMemb">Pseudo du Membre</label>
