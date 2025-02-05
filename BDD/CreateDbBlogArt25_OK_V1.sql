@@ -40,9 +40,9 @@
 
 -- First we create the database
 
-CREATE DATABASE BLOGART25
-DEFAULT CHARACTER SET UTF8			  -- Tous les formats de caractères
-DEFAULT COLLATE utf8_general_ci ;  --
+-- CREATE DATABASE BLOGART25
+-- DEFAULT CHARACTER SET UTF8			  -- Tous les formats de caractères
+-- DEFAULT COLLATE utf8_general_ci ;  --
 
 -- SHOW VARIABLES;					  -- Voir les paramètres de la BD
 
@@ -51,7 +51,7 @@ DEFAULT COLLATE utf8_general_ci ;  --
 
 
 -- Flush / Init all privileges
-FLUSH PRIVILEGES;
+-- FLUSH PRIVILEGES;
 
 -- Now we create the Database
 
@@ -64,8 +64,8 @@ FLUSH PRIVILEGES;
 -- Version du serveur: 5.5.33
 -- Version de PHP: 5.5.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+-- SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+-- SET time_zone = "+00:00";
 
 --
 -- Base de données: BLOGART
