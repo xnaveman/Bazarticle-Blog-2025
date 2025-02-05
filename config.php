@@ -14,6 +14,9 @@ require_once ROOT . '/config/defines.php';
 if (getenv('APP_DEBUG') == 'true') {
     require_once ROOT . '/config/debug.php';
 }
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL & ~E_NOTICE);
 
 //load functions
 require_once ROOT . '/functions/global.inc.php';
