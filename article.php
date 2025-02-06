@@ -69,13 +69,18 @@ if (isset($_SESSION['pseudoMemb'])) {
                 echo "</div>
                 <div class='comment'>
                     <h3>Ajouter un commentaire</h3>
+                    <form action='/api/comments/create.php?numArt=".$_GET['numArt']."' method='post'>
                     <div class='mb-3'>
                         <label for='exampleFormControlInput1' class='form-label'>" . htmlspecialchars($_SESSION['pseudoMemb']) . "</label>
                     </div>
                     <div class='mb-3'>
+                    <input id='numMemb' name='numMemb' class='form-control' style='display: none;' value='".$_SESSION['numMemb']."'readonly='readonly' type='text' autofocus='autofocus' />
+                    <input id='numArt' name='numArt' class='form-control' style='display: none;' value='".$_GET['numArt']."'readonly='readonly' type='text' autofocus='autofocus' />
                         <label for='exampleFormControlTextarea1' class='form-label'>Zone de texte</label>
-                        <textarea class='form-control' id='exampleFormControlTextarea1' rows='3'></textarea>
-                        <button type='button' class='btn btn-dark button-comment'>ENVOYER</button>
+                        <textarea name='libCom' class='form-control' id='exampleFormControlTextarea1' rows='3'></textarea>
+                        <button type='submit' class='btn btn-dark button-comment'>
+                        ENVOYER
+                        </button>
                     </div>
                 </div>
             </div>
