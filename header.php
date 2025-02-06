@@ -98,6 +98,7 @@ require_once 'config.php';
             } ?>
 
             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/index.php">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/recherche.php">Rechercher</a></li>
             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/articles.php">Articles</a></li>
             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/index.php">Contact</a></li>
 
