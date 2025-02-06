@@ -20,7 +20,7 @@ require_once 'config.php';
 </head>
 
 <body>
-  <header class="masthead" style="background-image: url('<?php echo ROOT_URL; ?>/src/images/juan-di-nella-ulhxvMjzI_4-unsplash.jpg')">
+  <header <?php if (!isset($_GET['numArt'])){echo 'class="masthead" style="background-image: url('.ROOT_URL.'/src/images/juan-di-nella-ulhxvMjzI_4-unsplash.jpg);"';}?>>
 
     <!-- <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
@@ -114,7 +114,7 @@ require_once 'config.php';
       </div>
     </nav>
     <!-- Page Header-->
-    <div class="container position-relative px-4 px-lg-5">
+     <?php if (!isset($_GET['numArt'])){ echo '<div class="container position-relative px-4 px-lg-5">
       <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
           <div class="site-heading">
@@ -123,5 +123,6 @@ require_once 'config.php';
           </div>
         </div>
       </div>
-    </div>
+    </div>';}?>
+    
   </header>
