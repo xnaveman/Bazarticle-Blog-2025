@@ -47,6 +47,9 @@ if(!isset($_SESSION)){
                     <input id="eMailMembverif" name="eMailMembverif" class="form-control" type="email" required />
                 </div>
                 <div class="form-group mb-3">
+                    <div class="g-recaptcha" data-sitekey="6Ldsoc4qAAAAALN8SrYLy0Z5fLI626k9jg8Fr1ND"></div>
+                </div>
+                <div class="form-group mb-3">
                     <?php
                     if (!empty($_SESSION['errors'])) {
                         foreach ($_SESSION['errors'] as $error) {
@@ -56,36 +59,11 @@ if(!isset($_SESSION)){
                     }
                     ?>
                 </div>
-                <div class='fw-bold text'>Autoriser la collecte des données (obligatoire)</div>
-
-                <div class="form-group mb-3">
-                    <div class="btn-group" role="group" aria-label="rgpd toggle">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="Refuser" autocomplete="off" checked>
-                        <label class="btn btn-outline-danger" for="btnradio1">Refuser</label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="Accepter" autocomplete="off">
-                        <label class="btn btn-outline-success" for="btnradio2">Accepter</label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Créer</button>
+                <button type="submit" class="btn btn-primary">Créer</button>
             </form>
         </div>
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const btnradio1 = document.getElementById('btnradio1');
-        const btnradio2 = document.getElementById('btnradio2');
-        const submitBtn = document.getElementById('submitBtn');
-
-        function toggleSubmitButton() {
-            submitBtn.disabled = !btnradio2.checked;
-        }
-
-        btnradio1.addEventListener('change', toggleSubmitButton);
-        btnradio2.addEventListener('change', toggleSubmitButton);
-    });
-</script>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?php include '../../../footer.php'; ?>
