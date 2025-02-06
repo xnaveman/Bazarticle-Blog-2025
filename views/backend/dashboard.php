@@ -71,14 +71,6 @@ if (check_access(2) == false) {
                             <td>Gestion côté front et côté back, modération. Utilisation de mise en forme (emojies...)</td>
                         </tr>
                         <tr>
-                            <td>Likes</td>
-                            <td>
-                                <a href="/views/backend/likes/list.php" class="btn btn-primary disabled">List</a>
-                                <a href="/views/backend/likes/create.php" class="btn btn-success disabled">Create</a>
-                            </td>
-                            <td>Utilisation de JS</td>
-                        </tr>
-                        <tr>
                             <td>Mot-clés</td>
                             <td>
                                 <a href="/views/backend/keywords/list.php" class="btn btn-primary ">List</a>
