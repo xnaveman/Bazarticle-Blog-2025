@@ -13,7 +13,7 @@ $thematiques=sql_select("thematique","*");
                     $articles=sql_select("article", "*","numThem=".$thematique['numThem']);
                     foreach ($articles as $key => $article) {
                         echo '<a href="Article.php?numArt='.$article['numArt'].'">
-                        <h3 class="article-title">'.$article['libTitrArt'].'</h3>
+                        <h4 class="article-title">'.$article['libTitrArt'].'</h4>
                         <p class="post-subtitle">'.$article['libChapoArt'].'</p>
                     </a>';
                     echo '<hr class="my-4" />';

@@ -35,7 +35,6 @@ $likeCount = $likeCountData[0]['totalLikes'] ?? 0;
             <?php echo "<h4>" . $article['libSsTitr2Art'] . "</h4>"; ?>
             <?php echo "<p>" . $article['parag3Art'] . "</p>"; ?>
             <?php echo "<p>" . $article['libConclArt'] . "</p>"; ?> </br>
-            <?php echo "<p>" . "<i class='fa fa-thumbs-up'></i>" . "  " . $likeCount . "</p>"; ?>
         </div>
     </div>
 </div> </br>
@@ -45,6 +44,9 @@ if (isset($_SESSION['pseudoMemb'])) {
     echo "<div class='container'>
         <div class='row justify-content-center'>
             <div class='col-md-6'>
+                <div class='mb-3'>";
+                    echo "<button class='btn btn-outline-success' type='button' data-bs-toggle='button'>J'aime cet article</button>" . " " . "<i class='fa fa-thumbs-up'></i>" . "  " . $likeCount . "</p>";
+                echo "</div>
                 <div class='comment'>
                     <h3>Ajouter un commentaire</h3>
                     <div class='mb-3'>
