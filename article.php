@@ -66,6 +66,30 @@ if (isset($_SESSION['pseudoMemb'])) {
                     </a> 
                     <i class='fa fa-thumbs-up'></i> " . $likeCount;
                 }
+                $comments=sql_select("comment","*","numArt=".$_GET['numArt']);
+                foreach ($comments as $key => $comment) {
+                    $membres=sql_select("membre","*","numMemb=".$comment['numMemb'])[0];
+                    if($comment['attModOK']=="1" && $comment['delLogiq']=="0"){
+                    echo    '
+                    <h3>Commentaires</h3>
+                    <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex flex-start">
+              <div class="w-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h6 class="text-primary fw-bold mb-0">
+                    '.$membres["pseudoMemb"].'
+                    <span class="text-body ms-2">'.$comment["libCom"].'</span>
+                  </h6>
+                </div>
+                  </div>
+                </div>
+              </div>
+              </div>';
+                       
+                        
+                    }
+                }
                 echo "</div>
                 <div class='comment'>
                     <h3>Ajouter un commentaire</h3>
