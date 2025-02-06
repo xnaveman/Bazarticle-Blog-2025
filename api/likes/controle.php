@@ -19,7 +19,7 @@ if ($action == 'like') {
     sql_delete('likeart', "numMemb = $numMemb AND numArt = $numArt");
 }
 
-header('Location: ' . ROOT_URL . '/article.php?numArt=' . $numArt);
+header('Location: ' . ROOT_URL . '/article.php/?numArt=' . $numArt . '#like');
 exit();
 ?>
 

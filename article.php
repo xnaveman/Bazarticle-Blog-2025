@@ -44,7 +44,7 @@ if (isset($_SESSION['numMemb'])) {
         </div>
     </div>
 </div> </br>
-
+<a id="like"></a>
 <?php
 if (isset($_SESSION['pseudoMemb'])) {
     echo "<div class='container'>
