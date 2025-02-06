@@ -36,36 +36,36 @@ if (!isset($_SESSION)) {
                 <input type="hidden" name="numStat" value="<?php echo $numStat; ?>">
 
                 <div class="form-group mb-3">
-                    <label for="pseudoMemb">Pseudo</label>
-                    <input id="pseudoMemb" name="pseudoMemb" class="form-control" type="text" value="<?php echo ($pseudoMemb); ?>" readonly disabled/>
+                    <label for="pseudoMemb">Pseudo du Membre</label>
+                    <input id="pseudoMemb" name="pseudoMemb" class="form-control" type="text" value="<?php echo ($pseudoMemb); ?>" readonly />
                 </div>
                 <div class="form-group mb-3">
-                    <label for="nomMemb">Nom</label>
+                    <label for="nomMemb">Nom du membre</label>
                     <input id="nomMemb" name="nomMemb" class="form-control" type="text" value="<?php echo ($nomMemb); ?>" required />
                 </div>
                 <div class="form-group mb-3">
-                    <label for="prenomMemb">Prénom</label>
+                    <label for="prenomMemb">Prénom du membre</label>
                     <input id="prenomMemb" name="prenomMemb" class="form-control" type="text" value="<?php echo ($prenomMemb); ?>" required />
                 </div> </br>
                 <div class="form-group mb-3">
-                    <label for="eMailMemb">Email</label>
+                    <label for="eMailMemb">Email du membre</label>
                     <input id="eMailMemb" name="eMailMemb" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>" required />
                 </div>
                 <div class="form-group mb-3">
-                    <label for="eMailMembVerif">Vérification Email</label>
+                    <label for="eMailMembVerif">Vérification Email du membre</label>
                     <input id="eMailMembVerif" name="eMailMembVerif" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>" required />
                 </div> </br>
                 <div class="form-group mb-3">
-                    <label for="passMemb">Mot de Passe</label>
+                    <label for="passMemb">Mot de Passe du membre</label>
                     <input id="passMemb" name="passMemb" class="form-control" type="password" value="<?php echo ($passMemb); ?>" required />
                 </div>
                 <div class="form-group mb-3">
-                    <label for="passMembVerif">Vérification Mot de Passe</label>
+                    <label for="passMembVerif">Vérification Mot de Passe du membre</label>
                     <input id="passMembVerif" name="passMembVerif" class="form-control" type="password" value="<?php echo ($passMemb); ?>" required />
                 </div> </br>
                 <div class="form-group mb-3">
                     <label for="numStat">Rôle</label>
-                    <input id="numStat" name="numStat" class="form-control" type="text" value="<?php echo ($libStat); ?>" readonly disabled/>
+                    <input id="numStatDisplay" name="numStatDisplay" class="form-control" type="text" value="<?php echo ($libStat); ?>" readonly disabled/>
                 </div>
                 <div class="form-group mb-3">
                     <?php
@@ -77,7 +77,11 @@ if (!isset($_SESSION)) {
                     }
                     ?>
                 </div>
-                <button type="submit" class="btn btn-primary">Modifier</button>
+                <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+            </form>
+            <form action="<?php echo ROOT_URL . '/views/backend/security/delete_account.php' ?>" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.');">
+                <input type="hidden" name="numMemb" value="<?php echo $numMemb; ?>">
+                <button type="submit" class="btn btn-danger mt-3">/!\ Supprimer le compte /!\</button>
             </form>
         </div>
     </div>
