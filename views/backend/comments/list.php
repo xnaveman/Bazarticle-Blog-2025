@@ -66,7 +66,7 @@ $commentsarchive = sql_select("comment","*","dtModCom IS NOT null AND dellogiq=1
                             <td><?php if ($comment['attModOK']==1){echo "OUI";} else{
                                 echo "NON";}?></td>
                             <td><?php echo($comment['notifComKOAff']); ?></td>
-                           
+                        
                             <td>
                                 <a href="edit.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-primary">Edit</a>
                             </td>
@@ -96,7 +96,7 @@ $commentsarchive = sql_select("comment","*","dtModCom IS NOT null AND dellogiq=1
                             <td><?php if ($comment['attModOK']==1){echo "OUI";} else{
                                 echo "NON";}?></td>
                             <td><?php echo($comment['notifComKOAff']); ?></td>
-                           
+                        
                             <td>
                                 <a href="edit.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-primary">Edit</a>
                                 <a href="delete.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-danger">Delete</a>
@@ -109,4 +109,4 @@ $commentsarchive = sql_select("comment","*","dtModCom IS NOT null AND dellogiq=1
     </div>
 </div>
 <?php
-include '../../../footer.php'; // contains the footer
+include '../../../footer.php';

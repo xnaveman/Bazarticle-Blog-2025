@@ -42,3 +42,5 @@ $articles=sql_select("article","*");
         </div>
     </div>
 </div>
+
+<?php require_once '../../../footer.php'; ?>
