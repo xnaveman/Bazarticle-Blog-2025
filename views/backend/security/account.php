@@ -5,7 +5,6 @@ if (!isset($_SESSION)) {
 }
 ?>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="container">
@@ -47,7 +46,7 @@ if (!isset($_SESSION)) {
                 <div class="form-group mb-3">
                     <label for="prenomMemb">Prénom du membre</label>
                     <input id="prenomMemb" name="prenomMemb" class="form-control" type="text" value="<?php echo ($prenomMemb); ?>" required />
-                </div>
+                </div> </br>
                 <div class="form-group mb-3">
                     <label for="eMailMemb">Email du membre</label>
                     <input id="eMailMemb" name="eMailMemb" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>" required />
@@ -55,7 +54,7 @@ if (!isset($_SESSION)) {
                 <div class="form-group mb-3">
                     <label for="eMailMembVerif">Vérification Email du membre</label>
                     <input id="eMailMembVerif" name="eMailMembVerif" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>" required />
-                </div>
+                </div> </br>
                 <div class="form-group mb-3">
                     <label for="passMemb">Mot de Passe du membre</label>
                     <input id="passMemb" name="passMemb" class="form-control" type="password" value="<?php echo ($passMemb); ?>" required />
@@ -63,7 +62,7 @@ if (!isset($_SESSION)) {
                 <div class="form-group mb-3">
                     <label for="passMembVerif">Vérification Mot de Passe du membre</label>
                     <input id="passMembVerif" name="passMembVerif" class="form-control" type="password" value="<?php echo ($passMemb); ?>" required />
-                </div>
+                </div> </br>
                 <div class="form-group mb-3">
                     <label for="numStat">Rôle</label>
                     <input id="numStat" name="numStat" class="form-control" type="text" value="<?php echo ($libStat); ?>" readonly disabled/>

@@ -7,7 +7,7 @@ $articlesrecents=sql_select("article", "*",null,null,'numArt DESC','2');
 <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                <h1>Nos articles →</h1> </br>
+                <h1>Nos derniers articles →</h1> </br>
 
 <?php 
 foreach ($articlesrecents as $key => $article) {
