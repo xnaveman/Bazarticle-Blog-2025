@@ -9,12 +9,12 @@ $thematiques=sql_select("thematique","*");
                 <div class="col-md-10 col-lg-8 col-xl-7">
                 <?php 
                 foreach ($thematiques as $key => $thematique) {
-                    echo "<h1>".$thematique['libThem']."</h1>";
+                    echo "<h1><u>".$thematique['libThem']."</u></h1>";
                     $articles=sql_select("article", "*","numThem=".$thematique['numThem']);
                     foreach ($articles as $key => $article) {
                         echo '<a href="Article.php?numArt='.$article['numArt'].'">
                         <h3 class="article-title">'.$article['libTitrArt'].'</h3>
-                        <h4 class="post-subtitle">'.$article['libChapoArt'].'</h4>
+                        <p class="post-subtitle">'.$article['libChapoArt'].'</p>
                     </a>';
                     echo '<hr class="my-4" />';
                     }
