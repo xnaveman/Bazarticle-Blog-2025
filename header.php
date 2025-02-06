@@ -11,16 +11,16 @@ require_once 'config.php';
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bordeaux : Le monde à travers Bordeaux</title>
-  <link rel="icon" type="image/x-icon" href="/front/assets/favicon.ico" />
-  <link rel="stylesheet" href="/front/css/styles.css">
+  <link rel="icon" type="image/x-icon" href="<?php echo ROOT_URL; ?>/front/assets/favicon.ico" />
+  <link rel="stylesheet" href="<?php echo ROOT_URL; ?>/front/css/styles.css">
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" type="image/x-icon" href="/src/images/article.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo ROOT_URL; ?>/src/images/article.png" />
 </head>
 
 <body>
-  <header class="masthead" style="background-image: url('/front/assets/img/juan-di-nella-ulhxvMjzI_4-unsplash.jpg')">
+  <header class="masthead" style="background-image: url('<?php echo ROOT_URL; ?>/front/assets/img/juan-di-nella-ulhxvMjzI_4-unsplash.jpg')">
 
     <!-- <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
@@ -52,9 +52,9 @@ require_once 'config.php';
 
     <?php
     if (isset($_GET['cookie']) && $_GET['cookie'] == 1) {
-      setcookie("cookie", "true", time() + 365 * 24 * 60 * 60, "/", "", false, true);
+      setcookie("cookie", "true", time() + 365 * 24 * 60 * 60, "/");
     } else if (isset($_GET['cookie'])) {
-      setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/", "", false, true);
+      setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/");
     } else {
       if (!isset($_COOKIE['cookie'])) {
         echo '
@@ -82,8 +82,8 @@ require_once 'config.php';
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container px-4 px-lg-5">
-        <img class="logo" src="front/assets/img/Vector.png" class="img-fluid" alt="Responsive image">
-        <a class="navbar-brand" href="Articles.html">Baz'Article<Article></Article></a>
+        <img class="logo" src="<?php echo ROOT_URL; ?>/front/assets/img/Vector.png" class="img-fluid" alt="Responsive image">
+        <a class="navbar-brand" href="<?php echo ROOT_URL; ?>/index.php">Baz'Article<Article></Article></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>

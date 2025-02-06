@@ -7,6 +7,8 @@ $articlesrecents=sql_select("article", "*",null,null,'numArt DESC','2');
 <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1>Nos articles →</h1> </br>
+
 <?php 
 foreach ($articlesrecents as $key => $article) {
     $thematiques=sql_select("thematique","*","numThem=".$article['numThem']);
@@ -19,7 +21,7 @@ foreach ($articlesrecents as $key => $article) {
         <hr class="my-4" />';
 }
 ?>
-<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="../HTML/Articles.html">Toutes nos articles →</a></div>
+<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="../HTML/Articles.html">Touts nos articles →</a></div>
                 </div>
             </div>
         </div>                    
