@@ -102,7 +102,7 @@ require_once 'config.php';
             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/index.php">Contact</a></li>
 
             <?php if (isset($_SESSION['pseudoMemb'])) {
-              echo "<li class='nav-item'><a href='" . ROOT_URL . "views/backend/security/account.php'><button type='button' class='btn btn-outline-light button'>" . $_SESSION['pseudoMemb'] . "</button></a></li>";
+              echo "<li class='nav-item'><a href='" . ROOT_URL . "/views/backend/security/account.php'><button type='button' class='btn btn-outline-light button'>" . $_SESSION['pseudoMemb'] . "</button></a></li>";
               echo "<li class='nav-item'><a href='" . ROOT_URL . "api/security/disconnect.php'><button type='button' class='btn btn-light button'> DÉCONNEXION</button></a></li>";
             } else {
               echo "<li class='nav-item'><a href='" . ROOT_URL . "/views/backend/security/signup.php'><button type='button' class='btn btn-light button'>S'INSCRIRE</button></a></li>";
