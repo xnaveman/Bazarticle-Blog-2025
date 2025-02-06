@@ -36,31 +36,31 @@ if (!isset($_SESSION)) {
                 <input type="hidden" name="numStat" value="<?php echo $numStat; ?>">
 
                 <div class="form-group mb-3">
-                    <label for="pseudoMemb">Pseudo du Membre</label>
+                    <label for="pseudoMemb">Pseudo</label>
                     <input id="pseudoMemb" name="pseudoMemb" class="form-control" type="text" value="<?php echo ($pseudoMemb); ?>" readonly disabled/>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="nomMemb">Nom du membre</label>
+                    <label for="nomMemb">Nom</label>
                     <input id="nomMemb" name="nomMemb" class="form-control" type="text" value="<?php echo ($nomMemb); ?>" required />
                 </div>
                 <div class="form-group mb-3">
-                    <label for="prenomMemb">Prénom du membre</label>
+                    <label for="prenomMemb">Prénom</label>
                     <input id="prenomMemb" name="prenomMemb" class="form-control" type="text" value="<?php echo ($prenomMemb); ?>" required />
                 </div> </br>
                 <div class="form-group mb-3">
-                    <label for="eMailMemb">Email du membre</label>
+                    <label for="eMailMemb">Email</label>
                     <input id="eMailMemb" name="eMailMemb" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>" required />
                 </div>
                 <div class="form-group mb-3">
-                    <label for="eMailMembVerif">Vérification Email du membre</label>
+                    <label for="eMailMembVerif">Vérification Email</label>
                     <input id="eMailMembVerif" name="eMailMembVerif" class="form-control" type="email" value="<?php echo ($eMailMemb); ?>" required />
                 </div> </br>
                 <div class="form-group mb-3">
-                    <label for="passMemb">Mot de Passe du membre</label>
+                    <label for="passMemb">Mot de Passe</label>
                     <input id="passMemb" name="passMemb" class="form-control" type="password" value="<?php echo ($passMemb); ?>" required />
                 </div>
                 <div class="form-group mb-3">
-                    <label for="passMembVerif">Vérification Mot de Passe du membre</label>
+                    <label for="passMembVerif">Vérification Mot de Passe</label>
                     <input id="passMembVerif" name="passMembVerif" class="form-control" type="password" value="<?php echo ($passMemb); ?>" required />
                 </div> </br>
                 <div class="form-group mb-3">
