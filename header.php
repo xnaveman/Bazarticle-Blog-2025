@@ -68,7 +68,7 @@ require_once 'config.php';
         Ce site utilise des cookies pour optimiser votre expérience et améliorer nos services. En acceptant, vous profitez d’un site plus fluide, personnalisé et performant.
       </div>
       <div class="modal-footer">';
-            echo '<a class="btn btn-primary m-1" href="/index.php?cookie=0" role="button">Accepter les cookies</a>';
+            echo '<a class="btn btn-primary m-1" href="/index.php?cookie=0" role="button">Refuser les cookies</a>';
             echo '<a class="btn btn-primary m-1" href="/index.php?cookie=1" role="button">Accepter les cookies</a>';
             echo ' </div>
       </div>
