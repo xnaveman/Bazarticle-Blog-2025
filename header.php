@@ -82,7 +82,7 @@ require_once 'config.php';
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container px-4 px-lg-5">
-        <img class="logo" src="<?php echo ROOT_URL; ?>/front/assets/img/Vector.png" class="img-fluid" alt="Responsive image">
+        <img class="logo" src="<?php echo ROOT_URL; ?>/src/images/Vector.png" class="img-fluid" alt="Responsive image">
         <a class="navbar-brand" href="<?php echo ROOT_URL; ?>/index.php">Baz'Article<Article></Article></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
@@ -93,20 +93,20 @@ require_once 'config.php';
 
             <?php if (isset($_SESSION['numStat']) && ($_SESSION['numStat'] == 1 || $_SESSION['numStat'] == 2)) {
               echo "<li class='nav-item'>
-            <a class='nav-link px-lg-3 py-3 py-lg-4' href='/views/backend/dashboard.php'>ADMIN</a>
+            <a class='nav-link px-lg-3 py-3 py-lg-4' href='" . ROOT_URL . "/views/backend/dashboard.php'>ADMIN</a>
           </li>";
             } ?>
 
-            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../../../index.php">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="articles.php">Articles</a></li>
-            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contact</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/index.php">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/articles.php">Articles</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/index.php">Contact</a></li>
 
             <?php if (isset($_SESSION['pseudoMemb'])) {
-              echo "<li class='nav-item'><a href='views/backend/security/account.php'><button type='button' class='btn btn-outline-light button'>" . $_SESSION['pseudoMemb'] . "</button></a></li>";
-              echo "<li class='nav-item'><a href='/api/security/disconnect.php'><button type='button' class='btn btn-light button'> DÉCONNEXION</button></a></li>";
+              echo "<li class='nav-item'><a href='" . ROOT_URL . "views/backend/security/account.php'><button type='button' class='btn btn-outline-light button'>" . $_SESSION['pseudoMemb'] . "</button></a></li>";
+              echo "<li class='nav-item'><a href='" . ROOT_URL . "api/security/disconnect.php'><button type='button' class='btn btn-light button'> DÉCONNEXION</button></a></li>";
             } else {
-              echo "<li class='nav-item'><a href='/views/backend/security/signup.php'><button type='button' class='btn btn-light button'>S'INSCRIRE</button></a></li>";
-              echo "<li class='nav-item'><a href='/views/backend/security/login.php'><button type='button' class='btn btn-outline-light button'> SE CONNECTER</button></a></li>";
+              echo "<li class='nav-item'><a href='" . ROOT_URL . "/views/backend/security/signup.php'><button type='button' class='btn btn-light button'>S'INSCRIRE</button></a></li>";
+              echo "<li class='nav-item'><a href='" . ROOT_URL . "/views/backend/security/login.php'><button type='button' class='btn btn-outline-light button'> SE CONNECTER</button></a></li>";
             } ?>
 
           </ul>
