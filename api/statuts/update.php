@@ -15,7 +15,7 @@ if (!empty($errors)) {
     header('Location: ../../views/backend/statuts/edit.php?numStat=' . $numStat); 
     exit();
 } else {
-    sql_update('STATUT', "libStat = '$libStat'", "numStat = '$numStat");
-    header('Location: ../../views/backend/status/edit.php');
+    sql_update('STATUT', "libStat = '$libStat'", "numStat = $numStat");
+    header('Location: ../../views/backend/statuts/list.php');
     exit();
 }

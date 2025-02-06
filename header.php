@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
 
+
 <head>
   <?php
   session_start();
   ?>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog'Art</title>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Load CSS -->
-  <link rel="stylesheet" href="src/css/style.css" />
-  <!-- Bootstrap CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <title>Bordeaux : Le monde à travers Bordeaux</title>
+  <link rel="icon" type="image/x-icon" href="front/assets/favicon.ico" />
+  <link href="/front/CSS/styles.css" rel="stylesheet" />
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" type="image/x-icon" href="src/images/article.png" />
 </head>
 <?php
-//load config
 require_once 'config.php';
 ?>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-light">
+<header class="masthead" style="background-image: url('front/assets/img/juan-di-nella-ulhxvMjzI_4-unsplash.jpg')">
+
+  <!-- <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Blog'Art 25</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,27 +34,13 @@ require_once 'config.php';
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          <?php if (isset($_SESSION['numStat']) && ($_SESSION['numStat'] == 1 || $_SESSION['numStat'] == 2)){
-          echo "<li class='nav-item'>
-            <a class='nav-link' href='/views/backend/dashboard.php'>Admin</a>
-          </li>";}
-          ?>
         </ul>
       </div>
-      <!--right align-->
       <div class="d-flex">
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Rechercher sur le site…" aria-label="Search">
         </form>
-        <?php
-        if (isset($_SESSION['pseudoMemb'])) {
-          echo '<a type="button" class="btn btn-outline-secondary" href="/views/backend/security/account.php" role="button">' . $_SESSION['pseudoMemb'] . '</button>';
-          echo '<a class="btn btn-primary m-1" href="/api/security/disconnect.php" role="button">Déconnexion</a>';
-        } else {
-          echo '<a class="btn btn-primary m-1" href="/views/backend/security/login.php" role="button">Login</a>';
-          echo '<a class="btn btn-dark m-1" href="/views/backend/security/signup.php" role="button">Inscription</a>';
-        }
-        ?>
+
         <script>
           document.addEventListener("DOMContentLoaded", function() {
             var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
@@ -68,10 +53,8 @@ require_once 'config.php';
         <?php
         if (isset($_GET['cookie']) && $_GET['cookie'] == 1) {
           setcookie("cookie", "true", time() + 365 * 24 * 60 * 60, "/", "", false, true);
-
         } else if (isset($_GET['cookie'])) {
           setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/", "", false, true);
-
         } else {
           if (!isset($_COOKIE['cookie'])) {
             echo '
@@ -88,13 +71,61 @@ require_once 'config.php';
             echo '<a class="btn btn-primary m-1" href="/index.php?cookie=0" role="button">Accepter les cookies</a>';
             echo '<a class="btn btn-primary m-1" href="/index.php?cookie=1" role="button">Accepter les cookies</a>';
             echo ' </div>
+      </div>
     </div>
-  </div>
-</div>';
+  </div>';
           }
         }
 
         ?>
       </div>
     </div>
+  </nav> -->
+
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+      <img class="logo" src="front/assets/img/Vector.png" class="img-fluid" alt="Responsive image">
+      <a class="navbar-brand" href="Articles.html">Baz'Article<Article></Article></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto py-4 py-lg-0">
+
+          <?php if (isset($_SESSION['numStat']) && ($_SESSION['numStat'] == 1 || $_SESSION['numStat'] == 2)) {
+            echo "<li class='nav-item'>
+            <a class='nav-link px-lg-3 py-3 py-lg-4' href='/views/backend/dashboard.php'>ADMIN</a>
+          </li>";
+          } ?>
+
+          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../../../index.php">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="articles.php">Articles</a></li>
+          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contact</a></li>
+
+          <?php if (isset($_SESSION['pseudoMemb'])) {
+            echo "<li class='nav-item'><a href='views/backend/security/account.php'><button type='button' class='btn btn-outline-light button'>" . $_SESSION['pseudoMemb'] . "</button></a></li>";
+            echo "<li class='nav-item'><a href='/api/security/disconnect.php'><button type='button' class='btn btn-light button'> DÉCONNEXION</button></a></li>";
+          } else {
+            echo "<li class='nav-item'><a href='/views/backend/security/signup.php'><button type='button' class='btn btn-light button'>S'INSCRIRE</button></a></li>";
+            echo "<li class='nav-item'><a href='/views/backend/security/login.php'><button type='button' class='btn btn-outline-light button'> SE CONNECTER</button></a></li>";
+          } ?>
+
+        </ul>
+      </div>
+    </div>
   </nav>
+  <!-- Page Header-->
+    <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="site-heading">
+            <h1>Bordeaux</h1>
+            <span class="subheading">Le Monde à travers Bordeaux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
