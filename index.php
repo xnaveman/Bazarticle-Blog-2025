@@ -21,7 +21,7 @@ foreach ($articlesrecents as $key => $article) {
         <hr class="my-4" />';
 }
 ?>
-<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="../HTML/Articles.html">Touts nos articles →</a></div>
+<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="Articles.php">Touts nos articles →</a></div>
                 </div>
             </div>
         </div></br>
