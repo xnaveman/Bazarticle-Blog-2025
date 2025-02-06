@@ -3,6 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once '../../functions/ctrlSaisies.php';
 require_once '../../functions/query/select.php';
 require_once '../../functions/query/insert.php';
+require_once '../../Captcha/autoload.php';
 
 if(!isset($_SESSION)){
     session_start();
@@ -16,6 +17,13 @@ $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
 $eMailMembverif = ctrlSaisies($_POST['eMailMembverif']);
 $dtCreaMemb = date("Y-m-d-H-i-s");
 $errors = [];
+
+// Validate reCAPTCHA
+$recaptcha = new \ReCaptcha\ReCaptcha('6Ldsoc4qAAAAAJPYA4QgHI2xdeJR4DOnryAqM6q2');
+$resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+if (!$resp->isSuccess()) {
+    $errors[] = 'CAPTCHA validation echouée. Recommencez.';
+}
 
 $nbrchara = strlen($pseudoMemb);
 $existingPseudo = sql_select("MEMBRE", "pseudoMemb", "pseudoMemb = '$pseudoMemb'");
@@ -46,3 +54,4 @@ if (!empty($errors)) {
     header('Location: ../../views/backend/members/list.php');
     exit();
 }
+?>
