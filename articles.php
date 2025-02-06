@@ -18,7 +18,6 @@ $thematiques=sql_select("thematique","*");
                     </a>';
                     echo '<hr class="my-4" />';
                     }
-                    echo '<hr>';
                 }
                 ?>
                 
