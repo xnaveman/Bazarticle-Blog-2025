@@ -1,15 +1,21 @@
 <?php
-require_once 'header.php';
-sql_connect();
+include 'header.php';
+require_once 'functions/query/select.php';
+
 $numArt = $_GET['numArt'];
-$article = sql_select("article", "*", "numArt=" . $numArt)[0];
+$article = sql_select("ARTICLE", "*", "numArt = $numArt")[0];
+$likeCount = sql_select("likeart", "COUNT(*) as count", "numArt = $numArt")[0]['count'];
 $numThem = sql_select("article", "*", "numThem=" . $article['numThem'])[0]['numThem'];
 $libThem = sql_select("thematique", "libThem", "numThem=" . $numThem)[0]['libThem'];
 
-$likeCountData = sql_select("likeart", "COUNT(*) as totalLikes", "numArt=" . $numArt . " AND likeA=1");
-$likeCount = $likeCountData[0]['totalLikes'] ?? 0;
 
+
+if (isset($_SESSION['numMemb'])) {
+    $numMemb = $_SESSION['numMemb'];
+    $hasLiked = has_liked($numMemb, $numArt);
+}
 ?>
+
 <header class="masthead" style="background-image: url('/src/uploads/<?php echo $article['urlPhotArt']; ?>')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -45,7 +51,21 @@ if (isset($_SESSION['pseudoMemb'])) {
         <div class='row justify-content-center'>
             <div class='col-md-6'>
                 <div class='mb-3'>";
-                    echo "<button class='btn btn-outline-success' type='button' data-bs-toggle='button'>J'aime cet article</button>" . " " . "<i class='fa fa-thumbs-up'></i>" . "  " . $likeCount . "</p>";
+                if ($hasLiked) {
+                    echo "<a href='" . ROOT_URL . "/api/likes/controle.php?action=unlike&numArt=$numArt'> 
+                    <button class='btn btn-outline-danger' type='button'>
+                        Je n'aime plus cet article
+                    </button> 
+                    </a> 
+                    <i class='fa fa-thumbs-up'></i> " . $likeCount;
+                } else {
+                    echo "<a href='" . ROOT_URL . "/api/likes/controle.php?action=like&numArt=$numArt'> 
+                    <button class='btn btn-outline-success' type='button'>
+                        J'aime cet article
+                    </button> 
+                    </a> 
+                    <i class='fa fa-thumbs-up'></i> " . $likeCount;
+                }
                 echo "</div>
                 <div class='comment'>
                     <h3>Ajouter un commentaire</h3>
@@ -72,7 +92,4 @@ if (isset($_SESSION['pseudoMemb'])) {
 }
 ?>
 
-
-
-
-<?php require_once 'footer.php'; ?>
+<?php include 'footer.php'; ?>

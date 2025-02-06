@@ -39,3 +39,13 @@ function sql_select($table, $attributs = '*', $where = null, $group = null, $ord
     //return result
     return $result;
 }
+
+function has_liked($numMemb, $numArt) {
+    global $DB;
+    $query = "SELECT * FROM likeart WHERE numMemb = :numMemb AND numArt = :numArt";
+    $stmt = $DB->prepare($query);
+    $stmt->bindParam(':numMemb', $numMemb);
+    $stmt->bindParam(':numArt', $numArt);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
