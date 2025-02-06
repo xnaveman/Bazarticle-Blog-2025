@@ -81,7 +81,10 @@ if (!isset($_SESSION)) {
             </form>
             <form action="<?php echo ROOT_URL . '/views/backend/security/delete_account.php' ?>" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.');">
                 <input type="hidden" name="numMemb" value="<?php echo $numMemb; ?>">
-                <button type="submit" class="btn btn-danger mt-3">/!\ Supprimer le compte /!\</button>
+                <?php if ($_SESSION['numStat'] == 1){
+                }else {
+                echo "<button type='submit' class='btn btn-danger mt-3'>/!\ Supprimer le compte /!\</button>";
+                } ?>
             </form>
         </div>
     </div>
