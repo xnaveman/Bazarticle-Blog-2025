@@ -90,3 +90,5 @@ if(!isset($_SESSION)){
     });
 </script>
 </div>
+
+<?php require_once '../../../footer.php'; ?>

@@ -103,7 +103,7 @@ require_once 'config.php';
 
             <?php if (isset($_SESSION['pseudoMemb'])) {
               echo "<li class='nav-item'><a href='" . ROOT_URL . "/views/backend/security/account.php'><button type='button' class='btn btn-outline-light button'>" . $_SESSION['pseudoMemb'] . "</button></a></li>";
-              echo "<li class='nav-item'><a href='" . ROOT_URL . "api/security/disconnect.php'><button type='button' class='btn btn-light button'> DÉCONNEXION</button></a></li>";
+              echo "<li class='nav-item'><a href='" . ROOT_URL . "/api/security/disconnect.php'><button type='button' class='btn btn-light button'> DÉCONNEXION</button></a></li>";
             } else {
               echo "<li class='nav-item'><a href='" . ROOT_URL . "/views/backend/security/signup.php'><button type='button' class='btn btn-light button'>S'INSCRIRE</button></a></li>";
               echo "<li class='nav-item'><a href='" . ROOT_URL . "/views/backend/security/login.php'><button type='button' class='btn btn-outline-light button'> SE CONNECTER</button></a></li>";
