@@ -23,33 +23,6 @@ require_once 'config.php';
 <body>
   <header <?php if (!isset($_GET['numArt'])){echo 'class="masthead" style="background-image: url('.ROOT_URL.'/src/images/juan-di-nella-ulhxvMjzI_4-unsplash.jpg);"';}?>>
 
-    <!-- <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Blog'Art 25</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-        </ul>
-      </div>
-      <div class="d-flex">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Rechercher sur le site…" aria-label="Search">
-        </form>
-
-        <script>
-          document.addEventListener("DOMContentLoaded", function() {
-            var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
-            myModal.show();
-          });
-        </script>
-      </div>
-    </div>
-  </nav> -->
     <script>
     function showCookieBanner() {
     let cookieBanner = document.getElementById("cb-cookie-banner");
@@ -102,7 +75,7 @@ window.cb_hideCookieBanner = hideCookieBanner;
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container px-4 px-lg-5">
-        <img class="logo" src="<?php echo ROOT_URL; ?>/src/uploads/gwendal.png" class="img-fluid" alt="Responsive image">
+        <img class="logo" src="<?php echo ROOT_URL; ?>/src/images/vector.png" class="img-fluid" alt="Responsive image">
         <a class="navbar-brand" href="<?php echo ROOT_URL; ?>/index.php">Baz'Article<Article></Article></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu

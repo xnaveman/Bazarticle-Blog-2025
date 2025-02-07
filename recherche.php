@@ -1,5 +1,4 @@
 <?php
-
 include("header.php");
 require_once 'functions/query/select.php';
 
@@ -10,80 +9,65 @@ if (!function_exists('str_contains')) {
 }
 
 $search_result = array();
+$articles = array();
 
-if (isset($_POST)){
-	$typerecherche = trim($_POST["typerecherche"]);
-	$recherche = trim($_POST["recherche"]);
-	if($typerecherche=="motcle"){
-		$motclerechreche = sql_select("motcle", "*", 'libMotCle LIKE "%'.$recherche.'%"');
-		foreach ($motclerechreche as $key => $motclere) {
-			$motclearticle=sql_select("motclearticle","*","numMotCle=".$motclere["numMotCle"]);
-			foreach ($motclearticle as $key => $motclee) {
-				$articles[]=sql_select("article","*","numArt=".$motclee['numArt'])[0];
-			}
-		}
-		
-	}
-	if($typerecherche=="thematique"){
-		$thematiquerecherche=sql_select("thematique","*",'libThem LIKE "%'.$recherche.'%"')[0];
-		$articles=sql_select("article","*","numThem=".$thematiquerecherche['numThem']);
-	}
-	if($typerecherche=="article"){
-		$articles = sql_select("article","*",'libTitrArt LIKE "%'.$recherche.'%"');
-	}
-	
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $typerecherche = isset($_POST["typerecherche"]) ? trim($_POST["typerecherche"]) : '';
+    $recherche = isset($_POST["recherche"]) ? trim($_POST["recherche"]) : '';
+
+    if ($typerecherche === "motcle") {
+        $motclerechreche = sql_select("motcle", "*", 'libMotCle LIKE "%' . $recherche . '%"');
+        foreach ($motclerechreche as $motclere) {
+            $motclearticle = sql_select("motclearticle", "*", "numMotCle=" . $motclere["numMotCle"]);
+            foreach ($motclearticle as $motclee) {
+                $article = sql_select("article", "*", "numArt=" . $motclee['numArt']);
+                if (!empty($article)) {
+                    $articles[] = $article[0];
+                }
+            }
+        }
+    } elseif ($typerecherche === "thematique") {
+        $thematiquerecherche = sql_select("thematique", "*", 'libThem LIKE "%' . $recherche . '%"');
+        if (!empty($thematiquerecherche)) {
+            $articles = sql_select("article", "*", "numThem=" . $thematiquerecherche[0]['numThem']);
+        }
+    } elseif ($typerecherche === "article") {
+        $articles = sql_select("article", "*", 'libTitrArt LIKE "%' . $recherche . '%"');
+    }
 }
 ?>
 
-
-<div class="row gx-4 gx-lg-5 justify-content-center">
-
-<form id="signup_form"  class="col-md-10 col-lg-8 col-xl-7 " action="recherche.php" method="post">
-<h2>Rechercher</h2>
-  <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form>
-                <div class="input-group mb-3">
-                    <select name="typerecherche"class="form-select" style="max-width: 150px;">
-                            <option value="motcle">Mot Clé</option>
-                            <option value="thematique">Thématique</option>
-                            <option value="article">Article</option>
-                        </select>
-                    <input type="text" required name="recherche"class="form-control" placeholder="Rechercher...">
-                    <button class="btn btn-primary" type="submit">Rechercher</button>
-                </div>
-            </form>
+<div class="container">
+    <h1>Rechercher</h1>
+    <form method="post" action="recherche.php">
+        <div class="form-group">
+            <label for="typerecherche">Type de recherche</label>
+            <select id="typerecherche" name="typerecherche" class="form-control" required>
+                <option value="">--Choisir un type de recherche--</option>
+                <option value="motcle">Mot Clé</option>
+                <option value="thematique">Thématique</option>
+                <option value="article">Article</option>
+            </select>
         </div>
-    </div>
-</div>
-</div>
-</form>
-</div>
-<div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-<?php
-foreach ($articles as $key => $article) {
-	$motclesarticles=sql_select("motclearticle","*","numArt=".$article['numArt']);
-                        foreach ($motclesarticles as $key => $motclesarticle) {
-                            $motcles[]=sql_select("motcle","*","numMotcle=".$motclesarticle['numMotCle'])[0];
-                        }
-                        echo '<a href="Article.php?numArt='.$article['numArt'].'">
-                        <h4 class="article-title">'.$article['libTitrArt'].'</h4>
-                        <p class="post-subtitle">'.$article['libChapoArt'].'</p>
-                    </a>';
-					foreach ($motcles as $key => $motcle) {
-						echo '<span class="badge rounded-pill bg-dark" style="margin-left: 5px; margin-right: 5px;">'.$motcle['libMotCle'].'</span>';
-					}
-					unset($motcles);
-                    echo '<hr class="my-4" />';
-}
-?>
-</div>
-</div>
-</div>
-<?php
-include("footer.php");
+        <div class="form-group">
+            <label for="recherche">Recherche</label>
+            <input id="recherche" name="recherche" class="form-control" type="text" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Rechercher</button>
+    </form>
 
-?>
+    <?php if (!empty($articles)): ?>
+        <h2>Résultats de la recherche</h2>
+        <ul>
+            <?php foreach ($articles as $article): ?>
+                <li>
+                    <a href="Article.php?numArt=<?php echo $article['numArt']; ?>">
+                        <?php echo htmlspecialchars($article['libTitrArt']); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+</div>
+
+<?php include("footer.php"); ?>

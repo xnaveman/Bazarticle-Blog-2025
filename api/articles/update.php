@@ -2,22 +2,26 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once '../../functions/ctrlSaisies.php';
 require_once '../../functions/query/update.php';
+require_once '../../functions/query/select.php';
 
-$numArt=$_GET['numArt'];
+$numArt = intval($_POST['numArt']);
 
-if (isset($_FILES)){
-    if ($_FILES['urlPhotArt']['error']==0 && $_FILES['urlPhotArt']['size']<=10000000){
-        $image = sql_select("article", "urlPhotArt", "numArt = $numArt")[0]['urlPhotArt'];
-        $chemin_image = "../../src/uploads/"."$image";
+if (isset($_FILES['urlPhotArt']) && $_FILES['urlPhotArt']['error'] == 0 && $_FILES['urlPhotArt']['size'] <= 10000000) {
+    $image = sql_select("article", "urlPhotArt", "numArt = $numArt")[0]['urlPhotArt'];
+    $chemin_image = $_SERVER['DOCUMENT_ROOT'] . "/src/uploads/" . $image;
+    if (file_exists($chemin_image)) {
         unlink($chemin_image);
-        $nom_image=$_FILES['urlPhotArt']['name'];
-        $extension = pathinfo($nom_image, PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES['urlPhotArt']['tmp_name'],"../../src/uploads/".$nom_image);
     }
+    $nom_image = $_FILES['urlPhotArt']['name'];
+    $extension = pathinfo($nom_image, PATHINFO_EXTENSION);
+    $new_filename = uniqid() . '.' . $extension;
+    move_uploaded_file($_FILES['urlPhotArt']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . "/src/uploads/" . $new_filename);
+    $urlPhotArt = "/src/uploads/" . $new_filename;
+} else {
+    $urlPhotArt = sql_select("article", "urlPhotArt", "numArt = $numArt")[0]['urlPhotArt'];
 }
 
-$motcles=sql_select("motclearticle","numMotCle","numArt=$numArt");
-$inputs=$_POST;
+$inputs = $_POST;
 extract($inputs);
 $dtMajArt = date("Y-m-d H:i:s");
 $libTitrArt = ctrlSaisies($libTitrArt);
@@ -28,18 +32,18 @@ $libSsTitr1Art = ctrlSaisies($libSsTitr1Art);
 $parag2Art = ctrlSaisies($parag2Art);
 $libSsTitr2Art = ctrlSaisies($libSsTitr2Art);
 $parag3Art = ctrlSaisies($parag3Art);
-$libConclArt =ctrlSaisies($libConclArt);
-$nom_image = ctrlSaisies($nom_image);
-$numThem = ctrlSaisies($numThem);
+$libConclArt = ctrlSaisies($libConclArt);
 
-sql_update('article', "dtMajArt='$dtMajArt',libTitrArt = '$libTitrArt', libChapoArt = '$libChapoArt', libAccrochArt = '$libAccrochArt', parag1Art = '$parag1Art', libSsTitr1Art = '$libSsTitr1Art', parag2Art = '$parag2Art', libSsTitr2Art = '$libSsTitr2Art', parag3Art = '$parag3Art', libConclArt = '$libConclArt', urlPhotArt = '$nom_image', numThem = '$numThem'", "numArt = $numArt");
+sql_update('article', "libTitrArt = '$libTitrArt', libChapoArt = '$libChapoArt', libAccrochArt = '$libAccrochArt', parag1Art = '$parag1Art', libSsTitr1Art = '$libSsTitr1Art', parag2Art = '$parag2Art', libSsTitr2Art = '$libSsTitr2Art', parag3Art = '$parag3Art', libConclArt = '$libConclArt', urlPhotArt = '$urlPhotArt', dtMajArt = '$dtMajArt'", "numArt = $numArt");
 
-sql_delete("motclearticle","numArt=$numArt"); //supprimer les anciens mots clés
-
-foreach ($inputs as $key => $value) { //ajouter les nouveaux mots clés
-    if(is_numeric($key)){
-        sql_insert("motclearticle","numArt,numMotCle","$numArt,$key"); 
+// Mise à jour des mots clés
+sql_delete('motclearticle', "numArt = $numArt");
+if (isset($_POST['motcles'])) {
+    foreach ($_POST['motcles'] as $numMotCle) {
+        sql_insert('motclearticle', 'numArt, numMotCle', "$numArt, $numMotCle");
     }
 }
 
-header('Location: ../../views/backend/articles/list.php');
+header('Location: ' . ROOT_URL . '/views/backend/articles/list.php');
+exit();
+?>
