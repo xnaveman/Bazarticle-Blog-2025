@@ -77,7 +77,7 @@ if (!isset($_SESSION)) {
                     }
                     ?>
                 </div>
-                <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+                <button type="submit" class="btn btn-primary">Modifier</button>
             </form>
             <form action="<?php echo ROOT_URL . '/views/backend/security/delete_account.php' ?>" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.');">
                 <input type="hidden" name="numMemb" value="<?php echo $numMemb; ?>">
