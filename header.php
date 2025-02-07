@@ -56,7 +56,7 @@ window.cb_hideCookieBanner = hideCookieBanner;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(208, 208, 208, 0.6);
+    background-color: rgb(208, 208, 208);
     color: black;
     padding: 15px;
     text-align: center;
