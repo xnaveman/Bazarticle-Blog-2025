@@ -51,7 +51,7 @@ $motcles = sql_select("motcle", "*");
                     foreach($motcles as $motcle){
                         echo "<input type='checkbox' name = '".$motcle['numMotCle']."'id='".$motcle['numMotCle']."'> ";
                         echo $motcle['libMotCle']."<br>";
-                       
+                    
                     }
                     ?>
                     

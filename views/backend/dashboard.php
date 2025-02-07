@@ -24,7 +24,7 @@ if (check_access(2) == false) {
                         <tr>
                             <th>Objets</th>
                             <th>Actions</th>
-                            <th>Commentaires</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,7 +35,7 @@ if (check_access(2) == false) {
                                 <a href="/views/backend/statuts/create.php" class="btn btn-success">Create</a>
                             </td>
                             <td>
-                                <p>Exemple fourni, s'y référer pour les autres CRUD</p>
+                                <p>Création et modification des statuts utilisateurs</p>
                             </td>
                         </tr>
                         <tr>
@@ -44,7 +44,7 @@ if (check_access(2) == false) {
                                 <a href="/views/backend/members/list.php" class="btn btn-primary">List</a>
                                 <a href="/views/backend/members/create.php" class="btn btn-success">Create</a>
                             </td>
-                            <td>Pour tous les membres : Inscription, connexion, sécurité et captcha</td>
+                            <td>Management des membres, suppression, modification et création</td>
                         </tr>
                         <tr>
                             <td>Articles</td>
@@ -52,7 +52,7 @@ if (check_access(2) == false) {
                                 <a href="/views/backend/articles/list.php" class="btn btn-primary ">List</a>
                                 <a href="/views/backend/articles/create.php" class="btn btn-success ">Create</a>
                             </td>
-                            <td>En même temps que l'article : image à intégrer, gestion des mots-clés associés</td>
+                            <td>Création, modification et publication des articles sur le blog</td>
                         </tr>
                         <tr>
                             <td>Thématiques</td>
@@ -60,7 +60,7 @@ if (check_access(2) == false) {
                                 <a href="/views/backend/thematiques/list.php" class="btn btn-primary">List</a>
                                 <a href="/views/backend/thematiques/create.php" class="btn btn-success">Create</a>
                             </td>
-                            <td></td>
+                            <td>Management des thématiques des articles</td>
                         </tr>
                         <tr>
                             <td>Commentaires</td>
@@ -68,15 +68,7 @@ if (check_access(2) == false) {
                                 <a href="/views/backend/comments/list.php" class="btn btn-primary ">List</a>
                                 <a href="/views/backend/comments/create.php" class="btn btn-success ">Create</a>
                             </td>
-                            <td>Gestion côté front et côté back, modération. Utilisation de mise en forme (emojies...)</td>
-                        </tr>
-                        <tr>
-                            <td>Likes</td>
-                            <td>
-                                <a href="/views/backend/likes/list.php" class="btn btn-primary disabled">List</a>
-                                <a href="/views/backend/likes/create.php" class="btn btn-success disabled">Create</a>
-                            </td>
-                            <td>Utilisation de JS</td>
+                            <td>Modération des commentaires</td>
                         </tr>
                         <tr>
                             <td>Mot-clés</td>
@@ -84,7 +76,7 @@ if (check_access(2) == false) {
                                 <a href="/views/backend/keywords/list.php" class="btn btn-primary ">List</a>
                                 <a href="/views/backend/keywords/create.php" class="btn btn-success ">Create</a>
                             </td>
-                            <td></td>
+                            <td>Management des mots-clés pour les articles</td>
                         </tr>
                     </tbody>
                 </table>

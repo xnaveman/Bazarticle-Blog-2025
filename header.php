@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
 <?php
+ob_start();
 require_once 'config.php';
 ?>
 
@@ -82,7 +83,7 @@ require_once 'config.php';
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container px-4 px-lg-5">
-        <img class="logo" src="<?php echo ROOT_URL; ?>/src/images/Vector.png" class="img-fluid" alt="Responsive image">
+        <img class="logo" src="<?php echo ROOT_URL; ?>/src/uploads/gwendal.png" class="img-fluid" alt="Responsive image">
         <a class="navbar-brand" href="<?php echo ROOT_URL; ?>/index.php">Baz'Article<Article></Article></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
