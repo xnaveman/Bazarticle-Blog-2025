@@ -34,7 +34,7 @@ $libSsTitr2Art = ctrlSaisies($libSsTitr2Art);
 $parag3Art = ctrlSaisies($parag3Art);
 $libConclArt = ctrlSaisies($libConclArt);
 
-sql_update('article', "libTitrArt = '$libTitrArt', libChapoArt = '$libChapoArt', libAccrochArt = '$libAccrochArt', parag1Art = '$parag1Art', libSsTitr1Art = '$libSsTitr1Art', parag2Art = '$parag2Art', libSsTitr2Art = '$libSsTitr2Art', parag3Art = '$parag3Art', libConclArt = '$libConclArt', urlPhotArt = '$urlPhotArt', dtMajArt = '$dtMajArt'", "numArt = $numArt");
+sql_update('article', "libTitrArt = '$libTitrArt', libChapoArt = '$libChapoArt', libAccrochArt = '$libAccrochArt', parag1Art = '$parag1Art', libSsTitr1Art = '$libSsTitr1Art', parag2Art = '$parag2Art', libSsTitr2Art = '$libSsTitr2Art', parag3Art = '$parag3Art', libConclArt = '$libConclArt', urlPhotArt = '$new_filename', dtMajArt = '$dtMajArt'", "numArt = $numArt");
 
 // Mise à jour des mots clés
 sql_delete('motclearticle', "numArt = $numArt");
