@@ -34,19 +34,19 @@ $articles = sql_select("article", "*");
             <form action="<?php echo ROOT_URL . '/api/articles/update.php?numArt='.$numArt ?>" enctype="multipart/form-data" method="post">
                 <div class="form-group">
                 <label for="libTitrArt">Titre de l'article</label>
-                    <input id="libTitrArt" name="libTitrArt" class="form-control" value="<?php echo($libTitrArt); ?>"type="text"  />
+                    <input id="libTitrArt" name="libTitrArt" class="form-control" maxlenght="100" value="<?php echo($libTitrArt); ?>"type="text"  />
                     <label for="libChapoArt">Chapô de l'article</label>
                     <input id="libChapoArt" name="libChapoArt" class="form-control" value="<?php echo($libChapoArt); ?>" type="text"  />
                     <label for="libAccrochArt">Accroche de l'article</label>
-                    <input id="libAccrochArt" name="libAccrochArt" class="form-control" value="<?php echo($libAccrochArt); ?>"type="text"  />
+                    <input id="libAccrochArt" name="libAccrochArt" class="form-control"  maxlenght="100"value="<?php echo($libAccrochArt); ?>"type="text"  />
                     <label for="parag1Art">Paragraphe 1 de l'article</label>
                     <input id="parag1Art" name="parag1Art" class="form-control" type="text"value="<?php echo($parag1Art); ?>"  />
                     <label for="libSsTitr1Art">Sous Titre 1 de l'article</label>
-                    <input id="libSsTitr1Art" name="libSsTitr1Art" class="form-control" type="text" value="<?php echo($libSsTitr1Art); ?>" />
+                    <input id="libSsTitr1Art" name="libSsTitr1Art" class="form-control" maxlenght="100"type="text" value="<?php echo($libSsTitr1Art); ?>" />
                     <label for="parag2Art">Paragraphe 2 de l'article</label>
                     <input id="parag2Art" name="parag2Art" class="form-control" type="text"value="<?php echo($parag2Art); ?>"  />
                     <label for="libSsTitr2Art">Sous Titre 2 de l'article</label>
-                    <input id="libSsTitr2Art" name="libSsTitr2Art" class="form-control" type="text" value="<?php echo($libSsTitr2Art); ?>" />
+                    <input id="libSsTitr2Art" name="libSsTitr2Art" class="form-control" maxlenght="100"type="text" value="<?php echo($libSsTitr2Art); ?>" />
                     <label for="parag3Art">Paragraphe 3 de l'article</label>
                     <input id="parag3Art" name="parag3Art" class="form-control" type="text"value="<?php echo($parag3Art); ?>"  />
                     <label for="libConclArt">Conclusion de l'article</label>
