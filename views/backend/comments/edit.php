@@ -41,7 +41,7 @@ if(isset($_GET['numCom'])){
                         <label for="validnon">Non</label><br>
                     <label for="notifComKOAff">Si non, en voici les raisons :</label> <br>
                     <textarea id="notifComKOAff" name="notifComKOAff" rows="4" cols="50"><?php echo ($tablecom[0]['notifComKOAff']);?></textarea> <br>
-                    <label for="dellogiq"><strong>En tant que modérateur, je souhaite que le post ne soit pas/plus affiché (suppression logique) :</strong></label><br>
+                    <label for="dellogiq"><strong>En tant que modérateur, je souhaite que le post ne soit pas/plus affiché (Archivé) :</strong></label><br>
                     <input type="radio" id="oui"name="dellogiq" value="1" <?php if ($tablecom[0]['delLogiq']==1){echo "checked";}?>  />
                         <label for="dellogiqoui">Oui</label>
                         <input type="radio" id="dellogiqnon" name="dellogiq" value="0"<?php if ($tablecom[0]['delLogiq']==0){echo "checked";}?>  />

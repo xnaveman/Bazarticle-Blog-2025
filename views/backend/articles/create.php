@@ -17,19 +17,19 @@ $motcles = sql_select("motcle", "*");
             <form action="<?php echo ROOT_URL . '/api/articles/create.php' ?>" enctype="multipart/form-data" method="post">
                 <div class="form-group">
                     <label for="libTitrArt">Titre de l'article</label>
-                    <input id="libTitrArt" name="libTitrArt" class="form-control" type="text"  />
+                    <input id="libTitrArt" name="libTitrArt" maxlenght="100"class="form-control" type="text"  />
                     <label for="libChapoArt">Chapô de l'article</label>
                     <input id="libChapoArt" name="libChapoArt" class="form-control" type="text"  />
                     <label for="libAccrochArt">Accroche de l'article</label>
-                    <input id="libAccrochArt" name="libAccrochArt" class="form-control" type="text"  />
+                    <input id="libAccrochArt" name="libAccrochArt" maxlenght="100" class="form-control" type="text"  />
                     <label for="parag1Art">Paragraphe 1 de l'article</label>
                     <input id="parag1Art" name="parag1Art" class="form-control" type="text"  />
                     <label for="libSsTitr1Art">Sous Titre 1 de l'article</label>
-                    <input id="libSsTitr1Art" name="libSsTitr1Art" class="form-control" type="text"  />
+                    <input id="libSsTitr1Art" name="libSsTitr1Art" maxlenght="100" class="form-control" type="text"  />
                     <label for="parag2Art">Paragraphe 2 de l'article</label>
                     <input id="parag2Art" name="parag2Art" class="form-control" type="text"  />
                     <label for="libSsTitr2Art">Sous Titre 2 de l'article</label>
-                    <input id="libSsTitr2Art" name="libSsTitr2Art" class="form-control" type="text"  />
+                    <input id="libSsTitr2Art" name="libSsTitr2Art" maxlenght="100" class="form-control" type="text"  />
                     <label for="parag3Art">Paragraphe 3 de l'article</label>
                     <input id="parag3Art" name="parag3Art" class="form-control" type="text"  />
                     <label for="libConclArt">Conclusion de l'article</label>

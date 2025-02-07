@@ -66,16 +66,45 @@ if (isset($_SESSION['pseudoMemb'])) {
                     </a> 
                     <i class='fa fa-thumbs-up'></i> " . $likeCount;
                 }
+                $comments=sql_select("comment","*","numArt=".$_GET['numArt']);
+                foreach ($comments as $key => $comment) {
+                    $membres=sql_select("membre","*","numMemb=".$comment['numMemb'])[0];
+                    if($comment['attModOK']=="1" && $comment['delLogiq']=="0"){
+                    echo    '
+                    <h3>Commentaires</h3>
+                    <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex flex-start">
+              <div class="w-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h6 class="text-primary fw-bold mb-0">
+                    '.$membres["pseudoMemb"].'
+                    <span class="text-body ms-2">'.$comment["libCom"].'</span>
+                  </h6>
+                </div>
+                  </div>
+                </div>
+              </div>
+              </div>';
+                       
+                        
+                    }
+                }
                 echo "</div>
                 <div class='comment'>
                     <h3>Ajouter un commentaire</h3>
+                    <form action='/api/comments/create.php?numArt=".$_GET['numArt']."' method='post'>
                     <div class='mb-3'>
                         <label for='exampleFormControlInput1' class='form-label'>" . htmlspecialchars($_SESSION['pseudoMemb']) . "</label>
                     </div>
                     <div class='mb-3'>
+                    <input id='numMemb' name='numMemb' class='form-control' style='display: none;' value='".$_SESSION['numMemb']."'readonly='readonly' type='text' autofocus='autofocus' />
+                    <input id='numArt' name='numArt' class='form-control' style='display: none;' value='".$_GET['numArt']."'readonly='readonly' type='text' autofocus='autofocus' />
                         <label for='exampleFormControlTextarea1' class='form-label'>Zone de texte</label>
-                        <textarea class='form-control' id='exampleFormControlTextarea1' rows='3'></textarea>
-                        <button type='button' class='btn btn-dark button-comment'>ENVOYER</button>
+                        <textarea name='libCom' class='form-control' id='exampleFormControlTextarea1' rows='3'></textarea>
+                        <button type='submit' class='btn btn-dark button-comment'>
+                        ENVOYER
+                        </button>
                     </div>
                 </div>
             </div>

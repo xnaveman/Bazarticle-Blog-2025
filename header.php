@@ -50,36 +50,55 @@ require_once 'config.php';
       </div>
     </div>
   </nav> -->
+    <script>
+    function showCookieBanner() {
+    let cookieBanner = document.getElementById("cb-cookie-banner");
+    cookieBanner.style.display = "block";
+}
 
-    <?php
-    if (isset($_GET['cookie']) && $_GET['cookie'] == 1) {
-      setcookie("cookie", "true", time() + 365 * 24 * 60 * 60, "/");
-    } else if (isset($_GET['cookie'])) {
-      setcookie("cookie", "false", time() + 365 * 24 * 60 * 60, "/");
-    } else {
-      if (!isset($_COOKIE['cookie'])) {
-        echo '
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Accepter nos cookies</h1>
-      </div>
-      <div class="modal-body">
-        Ce site utilise des cookies pour optimiser votre expérience et améliorer nos services. En acceptant, vous profitez d’un site plus fluide, personnalisé et performant.
-      </div>
-      <div class="modal-footer">';
-            echo '<a class="btn btn-primary m-1" href="/index.php?cookie=0" role="button">Refuser les cookies</a>';
-            echo '<a class="btn btn-primary m-1" href="/index.php?cookie=1" role="button">Accepter les cookies</a>';
-            echo ' </div>
-      </div>
-    </div>
-  </div>';
-      }
+function hideCookieBanner() {
+    localStorage.setItem("cb_isCookieAccepted", "yes");
+    let cookieBanner = document.getElementById("cb-cookie-banner");
+    cookieBanner.style.display = "none";
+}
+
+function initializeCookieBanner() {
+    let isCookieAccepted = localStorage.getItem("cb_isCookieAccepted")
+    if (isCookieAccepted == "yes") {
+        hideCookieBanner();
     }
+    if (isCookieAccepted =="no"){
+      showCookieBanner();
+    }
+}
 
-    ?>
 
+window.onload = initializeCookieBanner;
+window.cb_hideCookieBanner = hideCookieBanner;
+
+</script>
+<style>
+#cb-cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(208, 208, 208, 0.6);
+    color: black;
+    padding: 15px;
+    text-align: center;
+    z-index: 9999;
+}
+</style>
+<!-- Cookie Banner -->
+<div id="cb-cookie-banner" class="alert alert-dark text-center mb-0" role="alert">
+  &#x1F36A; Ce site utilise des cookies afin de vous permettre la meilleure experience.
+  <a href="https://www.cookiesandyou.com/" target="blank">En savoir plus</a>
+  <button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.cb_hideCookieBanner()">
+    Ok merci !
+  </button>
+</div>
+<!-- End of Cookie Banner -->
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container px-4 px-lg-5">
@@ -99,6 +118,7 @@ require_once 'config.php';
             } ?>
 
             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/index.php">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/recherche.php">Rechercher</a></li>
             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/articles.php">Articles</a></li>
             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo ROOT_URL?>/index.php">Contact</a></li>
 
