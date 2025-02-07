@@ -13,4 +13,10 @@ $libCom = ctrlSaisies($_POST['libCom']);
 $dtCreaCom=date("Y-m-d-H-i-s");
 sql_insert('comment', "dtCreaCom,libCom,numArt,numMemb", "'$dtCreaCom','$libCom','$numArt','$numMemb'");
 
-header('Location: ../../views/backend/comments/list.php');
+
+if (isset($_GET['numArt'])){
+    header('Location: /index.php');
+    exit();
+} else {
+    header('Location: ../../views/backend/comments/list.php');
+}
