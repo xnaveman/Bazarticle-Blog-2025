@@ -23,12 +23,9 @@ if(isset($_GET['numArt'])){
                     <input id="libTitrArt" name="libTitrArt" class="form-control" type="text" value="<?php echo($libTitrArt); ?>" readonly="readonly" disabled />
                 </div>
                 <br />
-                <?php  if(count($test)!=0) {
-                    echo "<div class='fw-bold text-danger'>L'article '$libTitrArt' ne peut pas être supprimé. Car des mots clés y sont associés</div>";
-                }?>
                 <div class="form-group mt-2">
                     <a href="list.php" class="btn btn-primary">List</a>
-                    <button type="submit" class="btn btn-danger <?php if (count($test)!=0){echo "disabled";} ?>" >Confirmer delete ?</button>
+                    <button type="submit" class="btn btn-danger" >Confirmer delete ?</button>
                 </div>
             </form>
         </div>
